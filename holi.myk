@@ -1,11 +1,15 @@
 program{
 	int a;
 	int b;
-	float pitin;
+	float flt;
 	a=1;
 	read a;
 	b=a;
-	read pitin;
-	write(pitin/b);
+	read flt;
+	write(flt/b);
 	write (b);
+	while(flt<100){
+		write flt;
+		flt=flt+0.5;
+	}
 }

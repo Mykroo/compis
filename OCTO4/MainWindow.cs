@@ -17,8 +17,7 @@ public partial class MainWindow: Gtk.Window
 		CreateNodeViewErrores ();
 		enUso = false;
 		estaBuscando = true;
-		Button1.ModifyBg(StateType.Normal,new Gdk.Color(225,225,225));
-		Button2.ModifyBg(StateType.Normal,new Gdk.Color(240,187,33));
+
 	}
 	// Extrae el nombre de un archivo en una ruta
 	public string getNombre(string ruta)
@@ -329,6 +328,9 @@ public partial class MainWindow: Gtk.Window
 			Hashtable.Buffer.Text = semantico.GetHachValues ();
 
 		}
+		if (ErroresListStore.Equals ("")) {
+			Console.WriteLine ("Erroressss:: ");
+		}
 		TreeResultados.Buffer.Text = "";
 		Variables = new Hashtable ();
 		pila = new Stack<OCTO4.TipoDato> ();
@@ -409,14 +411,12 @@ public partial class MainWindow: Gtk.Window
 	protected void OnButton1Clicked (object sender, EventArgs e)
 	{
 		Intermedio.Editable = true;
-		Button1.ModifyBg(StateType.Normal,new Gdk.Color(240,187,33));
-		Button2.ModifyBg(StateType.Normal,new Gdk.Color(225,225,225));
+
 	}
 	protected void OnButton2Clicked (object sender, EventArgs e)
 	{
 		Intermedio.Editable = false;
-		Button1.ModifyBg(StateType.Normal,new Gdk.Color(225,225,225));
-		Button2.ModifyBg(StateType.Normal,new Gdk.Color(240,187,33));
+
 	}
 	protected void OnButton3Clicked (object sender, EventArgs e)
 	{
@@ -809,71 +809,160 @@ public partial class MainWindow: Gtk.Window
 				break;
 			case "II":
 				if (pila.Count > 1) {
-					int n1 = Int32.Parse (DameValor ());
-					int n2 = Int32.Parse (DameValor ());
-					if (n2 == n1) {
-						pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+					OCTO4.TipoDato dt1DeII = pila.Pop ();
+					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					pila.Push (dt2DeII);
+					pila.Push (dt1DeII);
+
+					if (dt1DeII.GetTipo () == "float" || dt2DeII.GetTipo () == "float") {
+						float n1 = Single.Parse (DameValor ());
+						float n2 = Single.Parse (DameValor ());
+						if (n2 == n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						int n1 = Int32.Parse (DameValor ());
+						int n2 = Int32.Parse (DameValor ());
+						if (n2 == n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					}
 				}
 				break;
 			case "NI":
 				if (pila.Count > 1) {
-					int n1 = Int32.Parse (DameValor ());
-					int n2 = Int32.Parse (DameValor ());
-					if (n2 != n1) {
-						pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+					OCTO4.TipoDato dt1DeII = pila.Pop ();
+					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					pila.Push (dt2DeII);
+					pila.Push (dt1DeII);
+
+					if (dt1DeII.GetTipo () == "float" || dt2DeII.GetTipo () == "float") {
+						float n1 = Single.Parse (DameValor ());
+						float n2 = Single.Parse (DameValor ());
+						if (n2 != n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						int n1 = Int32.Parse (DameValor ());
+						int n2 = Int32.Parse (DameValor ());
+						if (n2 != n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					}
 				}
 				break;
 			case "MAI":
 				if (pila.Count > 1) {
-					int n1 = Int32.Parse (DameValor ());
-					int n2 = Int32.Parse (DameValor ());
-					if (n2 >= n1) {
-						pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+					OCTO4.TipoDato dt1DeII = pila.Pop ();
+					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					pila.Push (dt2DeII);
+					pila.Push (dt1DeII);
+
+					if (dt1DeII.GetTipo () == "float" || dt2DeII.GetTipo () == "float") {
+						float n1 = Single.Parse (DameValor ());
+						float n2 = Single.Parse (DameValor ());
+						if (n2 >= n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						int n1 = Int32.Parse (DameValor ());
+						int n2 = Int32.Parse (DameValor ());
+						if (n2 >= n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					}
 				}
 				break;
 			case "MEI":
 				if (pila.Count > 1) {
-					int n1 = Int32.Parse (DameValor ());
-					int n2 = Int32.Parse (DameValor ());
-					if (n2 <= n1) {
-						pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+					OCTO4.TipoDato dt1DeII = pila.Pop ();
+					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					pila.Push (dt2DeII);
+					pila.Push (dt1DeII);
+
+					if (dt1DeII.GetTipo () == "float" || dt2DeII.GetTipo () == "float") {
+						float n1 = Single.Parse (DameValor ());
+						float n2 = Single.Parse (DameValor ());
+						if (n2 <= n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						int n1 = Int32.Parse (DameValor ());
+						int n2 = Int32.Parse (DameValor ());
+						if (n2 <= n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					}
 				}
 				break;
 			case "ME":
 				if (pila.Count > 1) {
-					int n1 = Int32.Parse (DameValor ());
-					int n2 = Int32.Parse (DameValor ());
-					if (n2 < n1) {
-						pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+					OCTO4.TipoDato dt1DeII = pila.Pop ();
+					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					pila.Push (dt2DeII);
+					pila.Push (dt1DeII);
+
+					if (dt1DeII.GetTipo () == "float" || dt2DeII.GetTipo () == "float") {
+						float n1 = Single.Parse (DameValor ());
+						float n2 = Single.Parse (DameValor ());
+						if (n2 < n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						int n1 = Int32.Parse (DameValor ());
+						int n2 = Int32.Parse (DameValor ());
+						if (n2 < n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					}
 				}
 				break;
 			case "MA":
 				if (pila.Count > 1) {
-					int n1 = Int32.Parse (DameValor ());
-					int n2 = Int32.Parse (DameValor ());
-					if (n2 > n1) {
-						pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+					OCTO4.TipoDato dt1DeII = pila.Pop ();
+					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					pila.Push (dt2DeII);
+					pila.Push (dt1DeII);
+
+					if (dt1DeII.GetTipo () == "float" || dt2DeII.GetTipo () == "float") {
+						float n1 = Single.Parse (DameValor ());
+						float n2 = Single.Parse (DameValor ());
+						if (n2 > n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						int n1 = Int32.Parse (DameValor ());
+						int n2 = Int32.Parse (DameValor ());
+						if (n2 > n1) {
+							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+						} else {
+							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						}
 					}
 				}
-				break;	
-			// Fn de switch
+				break;
 			}
 			linea++;
 			instruccion = NextLine (linea);	
