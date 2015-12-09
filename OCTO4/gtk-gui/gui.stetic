@@ -98,10 +98,10 @@
         <property name="StockId">gtk-save-as</property>
         <signal name="Activated" handler="OnSaveAsActionActivated" />
       </action>
-      <action id="noAction">
+      <action id="closeAction2">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
-        <property name="StockId">gtk-no</property>
+        <property name="StockId">gtk-close</property>
         <signal name="Activated" handler="OnNoActionActivated" />
       </action>
       <action id="closeAction">
@@ -134,10 +134,10 @@
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-close</property>
       </action>
-      <action id="dialogErrorAction1">
+      <action id="stopAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
-        <property name="StockId">gtk-dialog-error</property>
+        <property name="StockId">gtk-stop</property>
         <signal name="Activated" handler="OnDialogErrorAction1Activated" />
       </action>
       <action id="findAction">
@@ -162,6 +162,26 @@
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-media-play</property>
         <signal name="Activated" handler="OnExecuteActionActivated" />
+      </action>
+      <action id="RunAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Run</property>
+        <property name="ShortLabel" translatable="yes">Run</property>
+      </action>
+      <action id="CompilarAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Compilar</property>
+        <property name="ShortLabel" translatable="yes">Compilar</property>
+      </action>
+      <action id="CompilarYCorrerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Compilar y correr</property>
+        <property name="ShortLabel" translatable="yes">Compilar y correr</property>
+      </action>
+      <action id="mediaPlayAction1">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-media-play</property>
       </action>
     </action-group>
     <property name="MemberName" />
@@ -195,6 +215,10 @@
                     <node type="Menuitem" action="BorrarAction" />
                     <node type="Menuitem" action="FuenteAction" />
                   </node>
+                  <node type="Menu" action="RunAction">
+                    <node type="Menuitem" action="CompilarAction" />
+                    <node type="Menuitem" action="mediaPlayAction1" />
+                  </node>
                 </node>
               </widget>
               <packing>
@@ -217,8 +241,8 @@
                       <node type="Toolitem" action="openAction" />
                       <node type="Toolitem" action="saveAction" />
                       <node type="Toolitem" action="saveAsAction" />
-                      <node type="Toolitem" action="noAction" />
-                      <node type="Toolitem" action="dialogErrorAction1" />
+                      <node type="Toolitem" action="closeAction2" />
+                      <node type="Toolitem" action="stopAction" />
                       <node type="Toolitem" action="mediaPlayAction" />
                     </node>
                   </widget>

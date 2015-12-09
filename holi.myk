@@ -1,11 +1,11 @@
 program{
 	int a;
 	int b;
-float pitin;
+	float pitin;
 	a=1;
 	read a;
 	b=a;
 	read pitin;
-	write(pitin/3);
+	write(pitin/b);
 	write (b);
 }

@@ -329,6 +329,11 @@ public partial class MainWindow: Gtk.Window
 			Hashtable.Buffer.Text = semantico.GetHachValues ();
 
 		}
+		TreeResultados.Buffer.Text = "";
+		Variables = new Hashtable ();
+		pila = new Stack<OCTO4.TipoDato> ();
+		Simular ();
+
 	}
 	protected void OnGuardarActionActivated (object sender, EventArgs e)
 	{
@@ -460,7 +465,7 @@ public partial class MainWindow: Gtk.Window
 				if (pila.Peek () != null) {
 					if (pila.Peek ().GetValor () == "null") {
 						TreeResultados.Buffer.Text += "Error var "
-						+ pila.Peek ().GetName () + " nullo\n";
+							+ pila.Peek ().GetName () + " nullo\n";
 						return;
 					}
 					int not = Int32.Parse (pila.Pop ().GetValor ());
@@ -485,14 +490,14 @@ public partial class MainWindow: Gtk.Window
 				if (pila.Peek () != null) {
 					if (pila.Peek ().GetValor () == "null") {
 						TreeResultados.Buffer.Text += "Error var "
-						+ pila.Peek ().GetName () + " nullo\n";
+							+ pila.Peek ().GetName () + " nullo\n";
 						return;
 					}
 					int valuno = Int32.Parse (pila.Pop ().GetValor ());
 
 					if (pila.Peek ().GetValor () == "null") {
 						TreeResultados.Buffer.Text += "Error var "
-						+ pila.Peek ().GetName () + " nullo\n";
+							+ pila.Peek ().GetName () + " nullo\n";
 						return;
 					}
 					int valDos = Int32.Parse (pila.Pop ().GetValor ());
@@ -508,14 +513,14 @@ public partial class MainWindow: Gtk.Window
 				if (pila.Peek () != null) {
 					if (pila.Peek ().GetValor () == "null") {
 						TreeResultados.Buffer.Text += "Error var "
-						+ pila.Peek ().GetName () + " nullo\n";
+							+ pila.Peek ().GetName () + " nullo\n";
 						return;
 					}
 					int valuno = Int32.Parse (pila.Pop ().GetValor ());
 
 					if (pila.Peek ().GetValor () == "null") {
 						TreeResultados.Buffer.Text += "Error var "
-						+ pila.Peek ().GetName () + " nullo\n";
+							+ pila.Peek ().GetName () + " nullo\n";
 						return;
 					}
 					int valDos = Int32.Parse (pila.Pop ().GetValor ());
@@ -533,14 +538,14 @@ public partial class MainWindow: Gtk.Window
 						float a, b;
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						a = Single.Parse (DameValor ());
 
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						b = Single.Parse (DameValor ());
@@ -549,7 +554,7 @@ public partial class MainWindow: Gtk.Window
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						int fA = Int32.Parse (DameValor ());
@@ -557,7 +562,7 @@ public partial class MainWindow: Gtk.Window
 						if (pila.Peek ().GetTipo () == "float") {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							float fB = Single.Parse (DameValor ());
@@ -566,7 +571,7 @@ public partial class MainWindow: Gtk.Window
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							int intB = Int32.Parse (DameValor ());
@@ -585,14 +590,14 @@ public partial class MainWindow: Gtk.Window
 						float a, b;
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						a = Single.Parse (DameValor ());
 
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						b = Single.Parse (DameValor ());
@@ -601,7 +606,7 @@ public partial class MainWindow: Gtk.Window
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						int fA = Int32.Parse (DameValor ());
@@ -609,7 +614,7 @@ public partial class MainWindow: Gtk.Window
 						if (pila.Peek ().GetTipo () == "float") {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							float fB = Single.Parse (DameValor ());
@@ -618,7 +623,7 @@ public partial class MainWindow: Gtk.Window
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							int intB = Int32.Parse (DameValor ());
@@ -638,14 +643,14 @@ public partial class MainWindow: Gtk.Window
 
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						a = Single.Parse (DameValor ());
 
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						b = Single.Parse (DameValor ());
@@ -654,7 +659,7 @@ public partial class MainWindow: Gtk.Window
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var " +
-							pila.Peek ().GetName () + " nullo\n";
+								pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						int fA = Int32.Parse (DameValor ());
@@ -662,7 +667,7 @@ public partial class MainWindow: Gtk.Window
 						if (pila.Peek ().GetTipo () == "float") {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							float fB = Single.Parse (DameValor ());
@@ -671,7 +676,7 @@ public partial class MainWindow: Gtk.Window
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							int intB = Int32.Parse (DameValor ());
@@ -690,14 +695,14 @@ public partial class MainWindow: Gtk.Window
 						float a, b;
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						a = Single.Parse (DameValor ());
 
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						b = Single.Parse (DameValor ());
@@ -710,7 +715,7 @@ public partial class MainWindow: Gtk.Window
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
-							+ pila.Peek ().GetName () + " nullo\n";
+								+ pila.Peek ().GetName () + " nullo\n";
 							return;
 						}
 						int fA = Int32.Parse (DameValor ());
@@ -718,7 +723,7 @@ public partial class MainWindow: Gtk.Window
 						if (pila.Peek ().GetTipo () == "float") {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							float fB = Single.Parse (DameValor ());
@@ -731,7 +736,7 @@ public partial class MainWindow: Gtk.Window
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
-								+ pila.Peek ().GetName () + " nullo\n";
+									+ pila.Peek ().GetName () + " nullo\n";
 								return;
 							}
 							int intB = Int32.Parse (DameValor ());
@@ -749,27 +754,35 @@ public partial class MainWindow: Gtk.Window
 				}
 				break;
 			case "LVE":
-				String entero;
-				MessageDialog dialogo = new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Entero: ");			
+				String entero = "entero";
+				MessageDialog dialogo; new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Entero: " + cant [1]);			
 				Entry entry = new Entry ();
-				dialogo.ActionArea.PackStart (entry);
-				dialogo.ShowAll ();
-				dialogo.Run ();
-				entero = entry.Text;
-				Variables[cant[1]]=new OCTO4.TipoDato(cant[1],entero,"int");
-				dialogo.Destroy(); 
+				int aux_comp;
+				while (!Int32.TryParse(entero,out aux_comp)){
+					dialogo= new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Entero: " + cant [1]);			
+					dialogo.ActionArea.PackStart (entry);
+					dialogo.ShowAll ();
+					dialogo.Run ();
+					entero = entry.Text;
+					Variables [cant [1]] = new OCTO4.TipoDato (cant [1], entero, "int");
+					dialogo.Destroy (); 
+				}
 				Console.WriteLine ("UpS");
 				break;
 			case "LVF":
-				string lve2 = "";
-				MessageDialog diaF = new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Flotante: ");			
+				double aux_flt;
+				MessageDialog diaF; //new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Flotante " + cant [1] + ": ");			
 				entry = new Entry ();
-				diaF.ActionArea.PackStart (entry);
-				diaF.ShowAll ();
-				diaF.Run ();
-				entero = entry.Text;
-				Variables[cant[1]]=new OCTO4.TipoDato(cant[1],entero,"float");
-				diaF.Destroy(); 
+				entero = "noflt";
+				do {
+					diaF = new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Flotante " + cant [1] + ": ");			
+					diaF.ActionArea.PackStart (entry);
+					diaF.ShowAll ();
+					diaF.Run ();
+					entero = entry.Text;
+					Variables [cant [1]] = new OCTO4.TipoDato (cant [1], entero, "float");
+					diaF.Destroy (); 
+				} while (!double.TryParse(entero,out aux_flt));
 				break;
 			case "SLT":
 				// Aqui debe haber dos etiquetas, si no, es error.

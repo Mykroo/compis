@@ -18,18 +18,22 @@ public partial class MainWindow
 	private global::Gtk.Action openAction;
 	private global::Gtk.Action saveAction;
 	private global::Gtk.Action saveAsAction;
-	private global::Gtk.Action noAction;
+	private global::Gtk.Action closeAction2;
 	private global::Gtk.Action closeAction;
 	private global::Gtk.Action deleteAction;
 	private global::Gtk.Action removeAction;
 	private global::Gtk.Action dialogErrorAction;
 	private global::Gtk.Action quitAction;
 	private global::Gtk.Action closeAction1;
-	private global::Gtk.Action dialogErrorAction1;
+	private global::Gtk.Action stopAction;
 	private global::Gtk.Action findAction;
 	private global::Gtk.Action findAndReplaceAction;
 	private global::Gtk.Action indentAction;
 	private global::Gtk.Action mediaPlayAction;
+	private global::Gtk.Action RunAction;
+	private global::Gtk.Action CompilarAction;
+	private global::Gtk.Action CompilarYCorrerAction;
+	private global::Gtk.Action mediaPlayAction1;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.VBox vbox2;
 	private global::Gtk.MenuBar menubar1;
@@ -125,8 +129,8 @@ public partial class MainWindow
 		w1.Add (this.saveAction, null);
 		this.saveAsAction = new global::Gtk.Action ("saveAsAction", null, null, "gtk-save-as");
 		w1.Add (this.saveAsAction, null);
-		this.noAction = new global::Gtk.Action ("noAction", null, null, "gtk-no");
-		w1.Add (this.noAction, null);
+		this.closeAction2 = new global::Gtk.Action ("closeAction2", null, null, "gtk-close");
+		w1.Add (this.closeAction2, null);
 		this.closeAction = new global::Gtk.Action ("closeAction", null, null, "gtk-close");
 		w1.Add (this.closeAction, null);
 		this.deleteAction = new global::Gtk.Action ("deleteAction", null, null, "gtk-delete");
@@ -139,8 +143,8 @@ public partial class MainWindow
 		w1.Add (this.quitAction, null);
 		this.closeAction1 = new global::Gtk.Action ("closeAction1", null, null, "gtk-close");
 		w1.Add (this.closeAction1, null);
-		this.dialogErrorAction1 = new global::Gtk.Action ("dialogErrorAction1", null, null, "gtk-dialog-error");
-		w1.Add (this.dialogErrorAction1, null);
+		this.stopAction = new global::Gtk.Action ("stopAction", null, null, "gtk-stop");
+		w1.Add (this.stopAction, null);
 		this.findAction = new global::Gtk.Action ("findAction", null, null, "gtk-find");
 		w1.Add (this.findAction, null);
 		this.findAndReplaceAction = new global::Gtk.Action ("findAndReplaceAction", null, null, "gtk-find-and-replace");
@@ -149,6 +153,17 @@ public partial class MainWindow
 		w1.Add (this.indentAction, null);
 		this.mediaPlayAction = new global::Gtk.Action ("mediaPlayAction", null, null, "gtk-media-play");
 		w1.Add (this.mediaPlayAction, null);
+		this.RunAction = new global::Gtk.Action ("RunAction", global::Mono.Unix.Catalog.GetString ("Run"), null, null);
+		this.RunAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Run");
+		w1.Add (this.RunAction, null);
+		this.CompilarAction = new global::Gtk.Action ("CompilarAction", global::Mono.Unix.Catalog.GetString ("Compilar"), null, null);
+		this.CompilarAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Compilar");
+		w1.Add (this.CompilarAction, null);
+		this.CompilarYCorrerAction = new global::Gtk.Action ("CompilarYCorrerAction", global::Mono.Unix.Catalog.GetString ("Compilar y correr"), null, null);
+		this.CompilarYCorrerAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Compilar y correr");
+		w1.Add (this.CompilarYCorrerAction, null);
+		this.mediaPlayAction1 = new global::Gtk.Action ("mediaPlayAction1", null, null, "gtk-media-play");
+		w1.Add (this.mediaPlayAction1, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -165,7 +180,7 @@ public partial class MainWindow
 		this.vbox2.Name = "vbox2";
 		this.vbox2.Spacing = 6;
 		// Container child vbox2.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='ArchivoAction' action='ArchivoAction'><menuitem name='GuardarAction' action='GuardarAction'/><menuitem name='GuardarComoAction' action='GuardarComoAction'/><menuitem name='AbrirAction' action='AbrirAction'/><menuitem name='SalirAction' action='SalirAction'/></menu><menu name='EditarAction' action='EditarAction'><menuitem name='CopiarAction' action='CopiarAction'/><menuitem name='CortarAction' action='CortarAction'/><menuitem name='PegarAction' action='PegarAction'/><menuitem name='BorrarAction' action='BorrarAction'/><menuitem name='FuenteAction' action='FuenteAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='ArchivoAction' action='ArchivoAction'><menuitem name='GuardarAction' action='GuardarAction'/><menuitem name='GuardarComoAction' action='GuardarComoAction'/><menuitem name='AbrirAction' action='AbrirAction'/><menuitem name='SalirAction' action='SalirAction'/></menu><menu name='EditarAction' action='EditarAction'><menuitem name='CopiarAction' action='CopiarAction'/><menuitem name='CortarAction' action='CortarAction'/><menuitem name='PegarAction' action='PegarAction'/><menuitem name='BorrarAction' action='BorrarAction'/><menuitem name='FuenteAction' action='FuenteAction'/></menu><menu name='RunAction' action='RunAction'><menuitem name='CompilarAction' action='CompilarAction'/><menuitem name='mediaPlayAction1' action='mediaPlayAction1'/></menu></menubar></ui>");
 		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 		this.menubar1.Name = "menubar1";
 		this.vbox2.Add (this.menubar1);
@@ -178,7 +193,7 @@ public partial class MainWindow
 		this.hbox18.Name = "hbox18";
 		this.hbox18.Spacing = 6;
 		// Container child hbox18.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='newAction' action='newAction'/><toolitem name='openAction' action='openAction'/><toolitem name='saveAction' action='saveAction'/><toolitem name='saveAsAction' action='saveAsAction'/><toolitem name='noAction' action='noAction'/><toolitem name='dialogErrorAction1' action='dialogErrorAction1'/><toolitem name='mediaPlayAction' action='mediaPlayAction'/></toolbar></ui>");
+		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='newAction' action='newAction'/><toolitem name='openAction' action='openAction'/><toolitem name='saveAction' action='saveAction'/><toolitem name='saveAsAction' action='saveAsAction'/><toolitem name='closeAction2' action='closeAction2'/><toolitem name='stopAction' action='stopAction'/><toolitem name='mediaPlayAction' action='mediaPlayAction'/></toolbar></ui>");
 		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
 		this.toolbar1.Name = "toolbar1";
 		this.toolbar1.ShowArrow = false;
@@ -523,8 +538,8 @@ public partial class MainWindow
 		this.openAction.Activated += new global::System.EventHandler (this.OnOpenActionActivated);
 		this.saveAction.Activated += new global::System.EventHandler (this.OnSaveActionActivated);
 		this.saveAsAction.Activated += new global::System.EventHandler (this.OnSaveAsActionActivated);
-		this.noAction.Activated += new global::System.EventHandler (this.OnNoActionActivated);
-		this.dialogErrorAction1.Activated += new global::System.EventHandler (this.OnDialogErrorAction1Activated);
+		this.closeAction2.Activated += new global::System.EventHandler (this.OnNoActionActivated);
+		this.stopAction.Activated += new global::System.EventHandler (this.OnDialogErrorAction1Activated);
 		this.findAndReplaceAction.Activated += new global::System.EventHandler (this.OnFindAndReplaceActionActivated);
 		this.indentAction.Activated += new global::System.EventHandler (this.OnIndentActionActivated);
 		this.mediaPlayAction.Activated += new global::System.EventHandler (this.OnExecuteActionActivated);
