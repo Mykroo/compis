@@ -5,19 +5,12 @@ namespace OCTO4
 	public partial class WidgetBuscarRemplazar
 	{
 		private global::Gtk.UIManager UIManager;
-		
 		private global::Gtk.Action goUpAction;
-		
 		private global::Gtk.Action goDownAction;
-		
 		private global::Gtk.Action cancelAction;
-		
 		private global::Gtk.Action Action;
-		
 		private global::Gtk.VBox vbox8;
-		
 		private global::Gtk.HBox hbox15;
-		
 		private global::Gtk.HBox hbox16;
 
 		protected virtual void Build ()

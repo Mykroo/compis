@@ -8,6 +8,8 @@
     <RootNamespace>OCTO4</RootNamespace>
     <AssemblyName>OCTO4</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,6 +85,8 @@
     <Compile Include="Properties\EnumTok.cs" />
     <Compile Include="Analizador.cs" />
     <Compile Include="TipoDato.cs" />
+    <Compile Include="Properties\Dialog.cs" />
+    <Compile Include="gtk-gui\OCTO4.Dialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

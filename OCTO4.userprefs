@@ -2,14 +2,16 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="OCTO4/GeneraCodigo.cs">
     <Files>
-      <File FileName="OCTO4/GeneraCodigo.cs" Line="22" Column="22" />
-      <File FileName="OCTO4/TextWidget.cs" Line="1" Column="1" />
+      <File FileName="OCTO4/GeneraCodigo.cs" Line="39" Column="24" />
+      <File FileName="OCTO4/TextWidget.cs" Line="199" Column="3" />
       <File FileName="OCTO4/Lexico.cs" Line="1" Column="1" />
-      <File FileName="OCTO4/Sintactico.cs" Line="1" Column="1" />
+      <File FileName="OCTO4/Sintactico.cs" Line="55" Column="5" />
       <File FileName="OCTO4/Semantico.cs" Line="1" Column="1" />
       <File FileName="OCTO4/Properties/Emulador.cs" Line="1" Column="1" />
-      <File FileName="OCTO4/Emulador.cs" Line="1" Column="1" />
-      <File FileName="OCTO4/gtk-gui/MainWindow.cs" Line="1" Column="1" />
+      <File FileName="OCTO4/Emulador.cs" Line="11" Column="4" />
+      <File FileName="OCTO4/gtk-gui/OCTO4.WidgetBuscarRemplazar.cs" Line="15" Column="30" />
+      <File FileName="OCTO4/MainWindow.cs" Line="862" Column="3" />
+      <File FileName="OCTO4/gtk-gui/MainWindow.cs" Line="521" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -430,7 +430,7 @@ public partial class MainWindow: Gtk.Window
 		Variables = new Hashtable ();
 		pila = new Stack<OCTO4.TipoDato> ();
 		instruccion = NextLine (linea);
-		while (instruccion != "FIN." && existeInstruccion (instruccion)) {
+		while (instruccion != "EOFF" && existeInstruccion (instruccion)) {
 			//BEGIN of safe zone
 
 			string[] cant = instruccion.Split (' ');
@@ -750,12 +750,13 @@ public partial class MainWindow: Gtk.Window
 				break;
 			case "LVE":
 				Gtk.Widget algo;
-
-				string lve = "";
-				Console.WriteLine ("Ingresa un valor entero");
-				//while(lve == ""){
-					 Console.Read();
-				//}
+				OCTO4.Dialog dialogo;
+				dialogo = new OCTO4.Dialog ();
+				//dialogo.setLabel ("Ingresa el valor entero " + cant [1]);
+				dialogo.Run ();
+				//Console.WriteLine (dialogo.RegresaValor ());
+				//Variables [cant [1]] = new  OCTO4.TipoDato (cant [1], dialogo.RegresaValor (), "int");
+				dialogo.Destroy(); 
 				Console.WriteLine ("UpS");
 				break;
 			case "LVF":
@@ -889,11 +890,11 @@ public partial class MainWindow: Gtk.Window
 			//Console.WriteLine ("comparando: "+NextLine(num) +" con "+etiqueta);
 			if(NextLine(num) == etiqueta){
 				return num-1;
-			}else if(NextLine(num) == "FIN."){
+			}else if(NextLine(num) == "EOFF"){
 				return -2;
 			}
 			num++;
-		} while (NextLine (num) != "FIN." && existeInstruccion (NextLine (num)));
+		} while (NextLine (num) != "EOFF" && existeInstruccion (NextLine (num)));
 		return -2;
 	}
 	public string DameTipoDato(){

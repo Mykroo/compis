@@ -36,7 +36,7 @@ namespace OCTO4
 			GenererarDeclaETQ (hashtable);
 			etiquetas.Push (1);
 			ciclarRecorrido(nod);
-			codigoFinal += "FIN.";
+			codigoFinal += "EOFF";
 			return codigoFinal;
 		}
 		public Nodo GeneraCodAsig(Nodo nod){
