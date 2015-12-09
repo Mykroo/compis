@@ -276,36 +276,10 @@ public partial class MainWindow: Gtk.Window
 		ErroresListStore.Clear();
 		GuargarTodo ();
 	}
-	protected void OnFindActionActivated (object sender, EventArgs e)
-	{	
-		int a;
-		if (!TapExist ()){return;}
-		a = NoteBook.CurrentPage;
 
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
-		if (!estaBuscando) {
-			widget.mostrarFind ();
-			estaBuscando = true;
-		} else 
-		{
-			widget.ocultarFind ();
-			estaBuscando = false;
-		}
-	}
 	protected void OnFindAndReplaceActionActivated (object sender, EventArgs e)
 	{
-		int a;
-		if (!TapExist ()){return;}
-		a = NoteBook.CurrentPage;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
-		if (!estaBuscando) {
-			widget.mostrarFind ();
-			estaBuscando = true;
-		} else 
-		{
-			widget.ocultarFind ();
-			estaBuscando = false;
-		}
+
 	}
 	protected void OnIndentActionActivated (object sender, EventArgs e)
 	{

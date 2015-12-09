@@ -1,13 +1,12 @@
 ﻿<Properties StartupItem="OCTO4/OCTO4.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="OCTO4/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OCTO4/GeneraCodigo.cs">
     <Files>
       <File FileName="OCTO4/GeneraCodigo.cs" Line="22" Column="22" />
-      <File FileName="OCTO4/MainWindow.cs" Line="3" Column="3" />
-      <File FileName="OCTO4/TextWidget.cs" Line="2" Column="2" />
-      <File FileName="OCTO4/Lexico.cs" Line="11" Column="11" />
-      <File FileName="OCTO4/Sintactico.cs" Line="16" Column="16" />
-      <File FileName="OCTO4/Semantico.cs" Line="18" Column="18" />
+      <File FileName="OCTO4/TextWidget.cs" Line="1" Column="1" />
+      <File FileName="OCTO4/Lexico.cs" Line="1" Column="1" />
+      <File FileName="OCTO4/Sintactico.cs" Line="1" Column="1" />
+      <File FileName="OCTO4/Semantico.cs" Line="1" Column="1" />
       <File FileName="OCTO4/Properties/Emulador.cs" Line="1" Column="1" />
       <File FileName="OCTO4/Emulador.cs" Line="1" Column="1" />
       <File FileName="OCTO4/gtk-gui/MainWindow.cs" Line="1" Column="1" />

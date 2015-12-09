@@ -12,7 +12,7 @@ namespace OCTO4
 		public TextWidget ()
 		{
 			this.Build ();
-			etiquetas ("teal","blue","black","green","red",false);
+			etiquetas ("purple","green","black","yellow","red",false);
 			modificado = false;
 			contLetras = 0;
 			linea = 0;
@@ -52,26 +52,7 @@ namespace OCTO4
 		{
 			this.modificado = modificado;
 		}
-		public void ocultarFind()
-		{
-			aBuscar.Visible = false;
-			aReemplazar.Visible = false;
-			sigui.Visible = false;
-			anteri.Visible = false;
-			reempl.Visible = false;
-			todas.Visible = false;
-			Ocultar.Visible = false;
-		}
-		public void mostrarFind()
-		{
-			aBuscar.Visible = true;
-			aReemplazar.Visible = true;
-			sigui.Visible = true;
-			anteri.Visible = true;
-			reempl.Visible = true;
-			todas.Visible = true;
-			Ocultar.Visible = true;
-		}
+
 		public void etiquetas(string reservada,string numero,string normal,
 			string comentario, string buscar,bool modificar){
 			TextBuffer buffer;
@@ -215,10 +196,7 @@ namespace OCTO4
 		{
 
 		}
-		protected void OnOcultarClicked (object sender, EventArgs e)
-		{
-			ocultarFind ();
-		}
+
 		public void Identar(){
 			TextIter iter1, iter2;
 			iter1 = codigo.Buffer.StartIter;
