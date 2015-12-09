@@ -749,22 +749,27 @@ public partial class MainWindow: Gtk.Window
 				}
 				break;
 			case "LVE":
-				Gtk.Widget algo;
-				OCTO4.Dialog dialogo;
-				dialogo = new OCTO4.Dialog ();
-				//dialogo.setLabel ("Ingresa el valor entero " + cant [1]);
+				String entero;
+				MessageDialog dialogo = new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Entero: ");			
+				Entry entry = new Entry ();
+				dialogo.ActionArea.PackStart (entry);
+				dialogo.ShowAll ();
 				dialogo.Run ();
-				//Console.WriteLine (dialogo.RegresaValor ());
-				//Variables [cant [1]] = new  OCTO4.TipoDato (cant [1], dialogo.RegresaValor (), "int");
+				entero = entry.Text;
+				Variables[cant[1]]=new OCTO4.TipoDato(cant[1],entero,"int");
 				dialogo.Destroy(); 
 				Console.WriteLine ("UpS");
 				break;
 			case "LVF":
 				string lve2 = "";
-				while(lve2 == ""){
-					Console.WriteLine ("Ingresa un valor flotante");
-					lve2 = Console.ReadLine ();
-				}
+				MessageDialog diaF = new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Flotante: ");			
+				entry = new Entry ();
+				diaF.ActionArea.PackStart (entry);
+				diaF.ShowAll ();
+				diaF.Run ();
+				entero = entry.Text;
+				Variables[cant[1]]=new OCTO4.TipoDato(cant[1],entero,"float");
+				diaF.Destroy(); 
 				break;
 			case "SLT":
 				// Aqui debe haber dos etiquetas, si no, es error.
@@ -918,5 +923,10 @@ public partial class MainWindow: Gtk.Window
 			}
 		}
 		return "";
+	}
+
+	protected void Compilar (object sender, EventArgs e)
+	{
+		throw new NotImplementedException ();
 	}
 }

@@ -144,7 +144,6 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-find</property>
-        <signal name="Activated" handler="OnFindActionActivated" />
       </action>
       <action id="findAndReplaceAction">
         <property name="Type">Action</property>
@@ -158,16 +157,18 @@
         <property name="StockId">gtk-indent</property>
         <signal name="Activated" handler="OnIndentActionActivated" />
       </action>
-      <action id="executeAction">
+      <action id="mediaPlayAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
-        <property name="StockId">gtk-execute</property>
+        <property name="StockId">gtk-media-play</property>
         <signal name="Activated" handler="OnExecuteActionActivated" />
       </action>
     </action-group>
     <property name="MemberName" />
-    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="Title" translatable="yes">Compilador M&amp;M  ++**--</property>
+    <property name="Icon">stock:stock_smiley-22 Menu</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="Gravity">Center</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
       <widget class="Gtk.VBox" id="vbox1">
@@ -218,7 +219,7 @@
                       <node type="Toolitem" action="saveAsAction" />
                       <node type="Toolitem" action="noAction" />
                       <node type="Toolitem" action="dialogErrorAction1" />
-                      <node type="Toolitem" action="executeAction" />
+                      <node type="Toolitem" action="mediaPlayAction" />
                     </node>
                   </widget>
                   <packing>

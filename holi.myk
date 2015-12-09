@@ -1,0 +1,11 @@
+program{
+	int a;
+	int b;
+float pitin;
+	a=1;
+	read a;
+	b=a;
+	read pitin;
+	write(pitin/3);
+	write (b);
+}

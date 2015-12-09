@@ -85,8 +85,6 @@
     <Compile Include="Properties\EnumTok.cs" />
     <Compile Include="Analizador.cs" />
     <Compile Include="TipoDato.cs" />
-    <Compile Include="Properties\Dialog.cs" />
-    <Compile Include="gtk-gui\OCTO4.Dialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

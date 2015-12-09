@@ -144,7 +144,6 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-find</property>
-        <signal name="Activated" handler="OnFindActionActivated" />
       </action>
       <action id="findAndReplaceAction">
         <property name="Type">Action</property>
