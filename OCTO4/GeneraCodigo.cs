@@ -149,7 +149,7 @@ namespace OCTO4
 				codigoFinal += "SLTSV L"+asignacionWhile.Pop()+"\n";
 			}
 			else if(arbol.token.getTipoToken() == (int)enumTok.Read){
-				codigoFinal += "L"+Numero(arbol.token.getLexema())+"\n";
+				codigoFinal += "RID"+Numero(arbol.token.getLexema())+"\n";
 			}
 			else if(arbol.token.getTipoToken() == (int)enumTok.Write){
 				GeneraCodAsig (arbol.hijos[0]);

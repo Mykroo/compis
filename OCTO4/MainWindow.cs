@@ -753,7 +753,7 @@ public partial class MainWindow: Gtk.Window
 					return;
 				}
 				break;
-			case "LVE":
+			case "RIDVE":
 				String entero = "entero";
 				MessageDialog dialogo; new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Entero: " + cant [1]);			
 				Entry entry = new Entry ();
@@ -769,7 +769,7 @@ public partial class MainWindow: Gtk.Window
 				}
 				Console.WriteLine ("UpS");
 				break;
-			case "LVF":
+			case "RIDVF":
 				double aux_flt;
 				MessageDialog diaF; //new MessageDialog (null, 0, MessageType.Question, ButtonsType.Ok, "Flotante " + cant [1] + ": ");			
 				entry = new Entry ();
@@ -890,7 +890,7 @@ public partial class MainWindow: Gtk.Window
 	}
 	public bool existeInstruccion(string instruccion){
 		string[] inst = {"VARE","VARF","CGVE","CGVF","WR","ST","CGE","CGF","SM","R","M","D",
-			"P","II","NI","MAI","MEI", "ME","MA","AND","OR","NOT","SLT","SLTSF","SLTSV","ETQ","LVF","LVE"};
+			"P","II","NI","MAI","MEI", "ME","MA","AND","OR","NOT","SLT","SLTSF","SLTSV","ETQ","RIDVF","RIDVE"};
 		string[] cant = instruccion.Split (' ');
 		if(cant[0] != null){
 			for (int i = 0; i < inst.Length; i++) {
