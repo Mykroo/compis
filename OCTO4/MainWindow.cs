@@ -859,7 +859,7 @@ public partial class MainWindow: Gtk.Window
 			linea++;
 			instruccion = NextLine (linea);	
 		}
-		//END of safe zone
+
 	}
 	public string NextLine(int linea){
 		TextIter iter1, iter2;

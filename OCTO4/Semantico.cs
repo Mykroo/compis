@@ -134,19 +134,19 @@ namespace OCTO4
 					tipo = postOrden(arbol.hijos[0]);
 					if (tipo != (int)enumTok.Bool)
 					{
-						store.AppendValues (arbol.token.getLinea(), "El if debe tener una exprecion booleana");
+						store.AppendValues (arbol.token.getLinea(), "El if debe tener una expresión booleana");
 					}
 					break;
 				case (int)enumTok.While:
 					tipo = postOrden(arbol.hijos[0]);                      
 					if (tipo != (int)enumTok.Bool || tipo == -1)
 					{
-						store.AppendValues (arbol.token.getLinea(), "El while debe tener una exprecion booleana");
+						store.AppendValues (arbol.token.getLinea(), "El while debe tener una expresión booleana");
 					}
 					break;
 				case (int)enumTok.Read:
 					if(getTipoVariable(arbol.token.getLexema()) == (int)enumTok.Bool) {
-						store.AppendValues (arbol.token.getLinea (), "Un read no debe ler expreciones booleanas");
+						store.AppendValues (arbol.token.getLinea (), "Un read no debe ler expresiones booleanas");
 					}
 					Console.WriteLine (arbol.token.getLexema());
 					break;
@@ -154,8 +154,8 @@ namespace OCTO4
 					tipo = postOrden(arbol.hijos[1]);
 					if (tipo != (int)enumTok.Bool || tipo == -1)
 					{
-						Console.WriteLine("ERROR: El do debe tener una exprecion booleana");
-						store.AppendValues (arbol.token.getLinea(), "El do debe tener una exprecion booleana");
+						Console.WriteLine("ERROR: El do debe tener una expresión booleana");
+						store.AppendValues (arbol.token.getLinea(), "El do debe tener una expresión booleana");
 					}
 					break;
 				case (int)enumTok.Write:
@@ -202,10 +202,10 @@ namespace OCTO4
 						queTipo == (int)enumTok.Bool
 						&& tipo == (int)enumTok.Float)
 					{
-						Console.WriteLine("ERROR: estas asignando una exprecion "+
+						Console.WriteLine("ERROR: estas asignando una expresión "+
 							"numerica a un booleano en (" + arbol.token.getLexema() + ")");
 
-						store.AppendValues (arbol.token.getLinea(), "Estas asignando una exprecion "+
+						store.AppendValues (arbol.token.getLinea(), "Estas asignando una expresión "+
 							"numerica a un booleano en (" + arbol.token.getLexema() + ")");
 					}                        
 					break;
@@ -263,11 +263,11 @@ namespace OCTO4
 								return -1;
 							}
 							queTipo = -1;
-							Console.WriteLine("ERROR SEMANTICO: esperaba exprecion numerica cerca de ("
+							Console.WriteLine("ERROR SEMANTICO: esperaba expresión numerica cerca de ("
 								+ exp.token.getLexema() + ") linea " + exp.token.getLinea());
 
 							store.AppendValues (exp.token.getLinea(),"Esperaba una " +
-								"exprecion numerica cerca de ("+ exp.token.getLexema() + ")");
+								"expresión numerica cerca de ("+ exp.token.getLexema() + ")");
 						}
 						return queTipo;
 					}
@@ -294,11 +294,11 @@ namespace OCTO4
 						else
 						{
 							Console.WriteLine("ERROR: esperaba una compracion entre"+
-								" expreciones numericas cerca de "
+								" expresiones numericas cerca de "
 								+ exp.token.getLexema() + "' linea " + exp.token.getLinea());
 
 							store.AppendValues (exp.token.getLinea(),"Esperaba  una " +
-								"comparacion entre expreciones numericas cerca de " +
+								"comparacion entre expresiones numericas cerca de " +
 								"("+ exp.token.getLexema() + ")");
 						}
 						return queTipo;
@@ -317,10 +317,10 @@ namespace OCTO4
 								return -1;
 							}
 							queTipo = -1;
-							Console.WriteLine("ERROR SEMANTICO: esperaba exprecion booleana cerca de ("
+							Console.WriteLine("ERROR SEMANTICO: esperaba expresión booleana cerca de ("
 								+exp.token.getLexema() + ") linea "+exp.token.getLinea() );
 
-							store.AppendValues (exp.token.getLinea(),"Esperaba  una exprecion booleana " +
+							store.AppendValues (exp.token.getLinea(),"Esperaba  una expresión booleana " +
 								"cerca de ("+ exp.token.getLexema() + ")");
 						}
 						return queTipo;
@@ -355,7 +355,7 @@ namespace OCTO4
 								+ exp.token.getLexema() + ") linea " + exp.token.getLinea());
 
 							store.AppendValues (exp.token.getLinea(),"Esperaba una " +
-								"exprecion numerarica en la comparacion, cerca de ("+ exp.token.getLexema() + ")");
+								"expresión numerarica en la comparacion, cerca de ("+ exp.token.getLexema() + ")");
 						}
 						return queTipo;
 					}
@@ -373,10 +373,10 @@ namespace OCTO4
 								return -1;
 							}
 							queTipo = -1;
-							Console.WriteLine("ERROR SEMANTICO: la suma contiene una exprecion erronea"+
+							Console.WriteLine("ERROR SEMANTICO: la suma contiene una expresión erronea"+
 								"cerca de ("+exp.token.getLexema() + ")"+" linea "+exp.token.getLinea());
 
-							store.AppendValues (exp.token.getLinea(),"La comparacion contiene una exprecion erronea "+
+							store.AppendValues (exp.token.getLinea(),"La comparacion contiene una expresión erronea "+
 								"cerca de ("+exp.token.getLexema() + ")");
 						}
 						return queTipo;
@@ -397,10 +397,10 @@ namespace OCTO4
 						}
 						else
 						{
-							Console.WriteLine("ERROR SEMANTICO: Esperaba una exprecion booleana "+
+							Console.WriteLine("ERROR SEMANTICO: Esperaba una expresión booleana "+
 								"en cerca de ("+ exp.token.getLexema()+") linea "+exp.token.getLinea());
 
-							store.AppendValues (exp.token.getLinea(),"Esperaba una exprecion booleana "+
+							store.AppendValues (exp.token.getLinea(),"Esperaba una expresión booleana "+
 								"cerca de ("+exp.token.getLexema() + ")");
 							queTipo = -1;
 						}
@@ -411,10 +411,10 @@ namespace OCTO4
 						{
 							return -1;
 						}
-						Console.WriteLine("ERROR SEMANTICO: en exprecion cerca de ("+exp.token.getLexema()+")"+
+						Console.WriteLine("ERROR SEMANTICO: en expresión cerca de ("+exp.token.getLexema()+")"+
 							"linea "+exp.token.getLinea());
 
-						store.AppendValues (exp.token.getLinea(),"Exprecion booleana planteada mal"+
+						store.AppendValues (exp.token.getLinea(),"expresión booleana planteada mal"+
 							"cerca de ("+exp.token.getLexema() + ")");
 						queTipo = -1;
 					}
@@ -464,10 +464,10 @@ namespace OCTO4
 					else
 					{
 						queTipo = -1;
-						Console.WriteLine("ERROR SEMANTICO: depues de not debe haber una exprecion booleana"+
+						Console.WriteLine("ERROR SEMANTICO: depues de not debe haber una expresión booleana"+
 							"linea "+exp.token.getLinea());
 
-						store.AppendValues (exp.token.getLinea(),"despues de not debe haber una exprecion booleana");
+						store.AppendValues (exp.token.getLinea(),"despues de not debe haber una expresión booleana");
 					}                    
 					return queTipo;
 				}

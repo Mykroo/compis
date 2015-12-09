@@ -101,16 +101,14 @@ namespace OCTO4
 			else 
 			{			
 				nodo = new Nodo(new Token("Esperaba 'Program'",-1,actualTkn.getLinea()));
-				store.AppendValues (actualTkn.getLinea (), "Esperaba"+
-					" 'program' al inicio de programa");
+				store.AppendValues (actualTkn.getLinea (), "Falta 'Program' al inicio de programa");
 			}
 			if (compara("{"))
 			{
 				siguiente();
 			}
 			else {
-				store.AppendValues (actualTkn.getLinea (), "Esperaba "+
-					"'{' despues de program");
+				store.AppendValues (actualTkn.getLinea (), "falta '{' después de program");
 			}
 				nodo.hijos[0] = lista_Declaracion();
 				nodo.hijos[1] = lista_sentencias();
@@ -119,8 +117,7 @@ namespace OCTO4
 				siguiente();
 				if (tokens.Count > 0)
 				{						
-					store.AppendValues (actualTkn.getLinea (), "Hay tokens al final "+
-						"del programa puede que tengas '}' extra");
+					store.AppendValues (actualTkn.getLinea (), "Tokens después del final del programa ");
 				}
 			}
 			else {
@@ -356,7 +353,7 @@ namespace OCTO4
 			{
 				store.AppendValues (actualTkn.getLinea (), "Esperaba '(' en sentencia if");
 			}
-			nodo.hijos[0] = b_exprecion();
+			nodo.hijos[0] = b_expresión();
 			if (actualTkn.getTipoToken().Equals((int)enumTok.parentesisCierra))
 			{
 				siguiente();
@@ -387,7 +384,7 @@ namespace OCTO4
 				store.AppendValues (actualTkn.getLinea (), "Esperaba '(' en sentencia while");
 			}
 
-			nodo.hijos[0] = b_exprecion();
+			nodo.hijos[0] = b_expresión();
 			if (actualTkn.getTipoToken().Equals((int)enumTok.parentesisCierra))
 			{
 				siguiente();
@@ -415,7 +412,7 @@ namespace OCTO4
 			}
 
 			//nodo.hijos[0] = declaracion();
-			nodo.hijos[1] = b_exprecion();
+			nodo.hijos[1] = b_expresión();
 
 			if (actualTkn.getTipoToken().Equals((int)enumTok.puntoComa))
 			{
@@ -465,7 +462,7 @@ namespace OCTO4
 			}
 
 
-			nodo.hijos[1] = b_exprecion();
+			nodo.hijos[1] = b_expresión();
 
 
 			if (actualTkn.getTipoToken().Equals((int)enumTok.parentesisCierra))
@@ -519,7 +516,7 @@ namespace OCTO4
 
 
 			nodo = new Nodo(new Token("write", (int)enumTok.Write, actualTkn.getLinea()));
-			nodo.hijos[0] = b_exprecion();
+			nodo.hijos[0] = b_expresión();
 			if (actualTkn.getTipoToken().Equals((int)enumTok.puntoComa))
 			{
 				siguiente();
@@ -564,7 +561,7 @@ namespace OCTO4
 						nodo = new Nodo(new Token(actualTkn.getLexema(),(int)enumTok.igual,actualTkn.getLinea()));
 						siguiente();
 						siguiente();
-						nodo.hijos[0] = b_exprecion();
+						nodo.hijos[0] = b_expresión();
 						if(actualTkn.getLexema() != ";") 
 						{						
 							store.AppendValues (actualTkn.getLinea (), "Esperaba ';' despues de asignacion *");
@@ -578,28 +575,28 @@ namespace OCTO4
 
 						siguiente();
 						siguiente();
-						nodo.hijos[0] = b_exprecion();
+						nodo.hijos[0] = b_expresión();
 					}
 					else if (tokens.Peek().getTipoToken().Equals((int)enumTok.menosIgual))
 					{
 						nodo = new Nodo(new Token("-= " + actualTkn.getLexema(), (int)enumTok.igual, actualTkn.getLinea()));
 						siguiente();
 						siguiente();					
-						nodo.hijos[0] = b_exprecion();
+						nodo.hijos[0] = b_expresión();
 					}
 					else if (tokens.Peek().getTipoToken().Equals((int)enumTok.entreIgual))
 					{
 						nodo = new Nodo(new Token("/= " + actualTkn.getLexema(), (int)enumTok.igual, actualTkn.getLinea()));
 						siguiente();
 						siguiente();					
-						nodo.hijos[0] = b_exprecion();
+						nodo.hijos[0] = b_expresión();
 					}
 					else if (tokens.Peek().getTipoToken().Equals((int)enumTok.porIgual))
 					{
 						nodo = new Nodo(new Token("*= " + actualTkn.getLexema(), (int)enumTok.igual, actualTkn.getLinea()));
 						siguiente();
 						siguiente();
-						nodo.hijos[0] = b_exprecion();
+						nodo.hijos[0] = b_expresión();
 					}
 					else if (tokens.Peek().getTipoToken().Equals((int)enumTok.masMas))
 					{
@@ -615,7 +612,7 @@ namespace OCTO4
 						if (actualTkn.getTipoToken().Equals((int)enumTok.Id))
 						{								
 							actualTkn = new Token("null", (int)enumTok.Null, actualTkn.getLinea());
-							store.AppendValues (actualTkn.getLinea (), "Tienes ID's seguidos o posible exprecion incompleta ");
+							store.AppendValues (actualTkn.getLinea (), "Tienes ID's seguidos o posible expresión incompleta ");
 						}
 					}
 				}
@@ -627,8 +624,8 @@ namespace OCTO4
 			}
 			return nodo;
 		}
-		// b_exprecion() y b_term() estan cicladas en si mismas, pero hay dudas aqui
-		public Nodo b_exprecion()
+		// b_expresión() y b_term() estan cicladas en si mismas, pero hay dudas aqui
+		public Nodo b_expresión()
 		{
 			Nodo nodo = null;
 			nodo = b_term();
@@ -639,7 +636,7 @@ namespace OCTO4
 				nodCp.hijos[0] = nodo;
 				nodo = nodCp;
 				siguiente();
-				nodo.hijos[1] = b_exprecion();
+				nodo.hijos[1] = b_expresión();
 			}
 
 			return nodo;
@@ -691,7 +688,7 @@ namespace OCTO4
 		public Nodo relacion()
 		{
 			Nodo nodo = null;
-			nodo = exprecion();
+			nodo = expresión();
 			if (actualTkn.getTipoToken().Equals((int)enumTok.mayor) ||
 				actualTkn.getTipoToken().Equals((int)enumTok.menor) ||
 				actualTkn.getTipoToken().Equals((int)enumTok.mayorIgual) ||
@@ -703,7 +700,7 @@ namespace OCTO4
 				nodCp = relop();
 				nodCp.hijos[0] = nodo;             
 				nodo = nodCp;
-				nodo.hijos[1] = exprecion();
+				nodo.hijos[1] = expresión();
 			}
 			return nodo;
 		}
@@ -739,7 +736,7 @@ namespace OCTO4
 			}
 			return nodo;
 		}
-		public Nodo exprecion()
+		public Nodo expresión()
 		{
 			Nodo nodo = null;
 			nodo = termino();
@@ -820,7 +817,7 @@ namespace OCTO4
 			if (actualTkn.getTipoToken().Equals((int)enumTok.ParentesisAbre))
 			{
 				siguiente();
-				nodo = b_exprecion();
+				nodo = b_expresión();
 				if (actualTkn.getTipoToken().Equals((int)enumTok.parentesisCierra))
 				{
 					siguiente();
@@ -842,7 +839,7 @@ namespace OCTO4
 				siguiente();
 				if (actualTkn.getTipoToken().Equals((int)enumTok.Id))
 				{
-					store.AppendValues (actualTkn.getLinea (), "Tienes dos ID's seguidos o posible exprecion incompleta ");
+					store.AppendValues (actualTkn.getLinea (), "Tienes dos ID's seguidos o posible expresión incompleta ");
 					actualTkn = new Token("null",(int)enumTok.Null,actualTkn.getLinea());
 				}
 			}
