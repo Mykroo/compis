@@ -86,11 +86,11 @@ namespace OCTO4
 					}
 					catch (Exception repetido)
 					{
-						Console.WriteLine("ERROR: La declaracion (" +
-							arbol.token.getLexema() + ") ha sido declarada dos veces");
+						Console.WriteLine("ERROR: Variable (" +
+							arbol.token.getLexema() + ") ya declarada");
 
 						store.AppendValues (arbol.token.getLinea(), "La variable (" +
-							arbol.token.getLexema() + ") ha sido declarada dos veces");
+							arbol.token.getLexema() + ") ya esta declarada");
 					}
 				}
 				else
@@ -125,8 +125,8 @@ namespace OCTO4
 						Console.WriteLine("ERROR: la variable (" + arbol.token.getLexema() + ")" +
 							" no ha sido declarado, linea "+arbol.token.getLinea());
 
-						store.AppendValues (arbol.token.getLinea(), "La variable (" +
-							arbol.token.getLexema() + ") no ha sido declarada");
+						store.AppendValues (arbol.token.getLinea(), "Variable (" +
+							arbol.token.getLexema() + ") no declarada");
 					}
 				}
 				switch(arbol.token.getTipoToken()){
@@ -134,19 +134,19 @@ namespace OCTO4
 					tipo = postOrden(arbol.hijos[0]);
 					if (tipo != (int)enumTok.Bool)
 					{
-						store.AppendValues (arbol.token.getLinea(), "El if debe tener una expresión booleana");
+						store.AppendValues (arbol.token.getLinea(), "if, hace falta expresión booleana");
 					}
 					break;
 				case (int)enumTok.While:
 					tipo = postOrden(arbol.hijos[0]);                      
 					if (tipo != (int)enumTok.Bool || tipo == -1)
 					{
-						store.AppendValues (arbol.token.getLinea(), "El while debe tener una expresión booleana");
+						store.AppendValues (arbol.token.getLinea(), "while, hace falta expresión booleana");
 					}
 					break;
 				case (int)enumTok.Read:
 					if(getTipoVariable(arbol.token.getLexema()) == (int)enumTok.Bool) {
-						store.AppendValues (arbol.token.getLinea (), "Un read no debe ler expresiones booleanas");
+						store.AppendValues (arbol.token.getLinea (), "read booleano desactivado");
 					}
 					Console.WriteLine (arbol.token.getLexema());
 					break;
@@ -154,21 +154,21 @@ namespace OCTO4
 					tipo = postOrden(arbol.hijos[1]);
 					if (tipo != (int)enumTok.Bool || tipo == -1)
 					{
-						Console.WriteLine("ERROR: El do debe tener una expresión booleana");
-						store.AppendValues (arbol.token.getLinea(), "El do debe tener una expresión booleana");
+						Console.WriteLine("ERROR: dohace falta  expresión booleana");
+						store.AppendValues (arbol.token.getLinea(), "do hace falta expresión booleana");
 					}
 					break;
 				case (int)enumTok.Write:
 					if(arbol.hijos[0] == null){
-						store.AppendValues (arbol.token.getLinea(), "El write no tiene parametro de salida");
+						store.AppendValues (arbol.token.getLinea(), "write, faltan parámetros ");
 					}
 					break;
 				case (int)enumTok.For:
 					tipo = postOrden(arbol.hijos[1]);
 					if (tipo != (int)enumTok.Bool || tipo == -1)
 					{
-						Console.WriteLine("ERROR: El for debe iniciar con un exp booleana");
-						store.AppendValues (arbol.token.getLinea(), "El for debe iniciar con un exp booleana");
+						Console.WriteLine("ERROR: For errror");
+						store.AppendValues (arbol.token.getLinea(), "El for error");
 					}
 					break;	
 				case (int)enumTok.igual:
@@ -178,7 +178,7 @@ namespace OCTO4
 					if(queTipo == (int)enumTok.Int
 						&& tipo == (int)enumTok.Float)
 					{
-						Console.WriteLine("ERROR: estas asignando a un entero un flotante en (" 
+						Console.WriteLine("ERROR: Int a flotante no valido (" 
 							+ arbol.token.getLexema() + ")");
 
 						store.AppendValues (arbol.token.getLinea(), "Estas asignando un flotante a un entero en (" 
@@ -190,10 +190,10 @@ namespace OCTO4
 						queTipo == (int)enumTok.Float
 						&& tipo == (int)enumTok.Bool)
 					{
-						Console.WriteLine("ERROR: estas asignando a un entero un booleano en ("
+						Console.WriteLine("ERROR: booleano a entero no valido ("
 							+ arbol.token.getLexema() + ")");
 
-						store.AppendValues (arbol.token.getLinea(),"Estas asignando un booleano a un entero en ("
+						store.AppendValues (arbol.token.getLinea(),"booleano a entero no valido en ("
 							+ arbol.token.getLexema() + ")");
 					}
 					else if (queTipo == (int)enumTok.Bool
@@ -317,10 +317,10 @@ namespace OCTO4
 								return -1;
 							}
 							queTipo = -1;
-							Console.WriteLine("ERROR SEMANTICO: esperaba expresión booleana cerca de ("
+							Console.WriteLine("ERROR SEMANTICO: Se esperaba exp booleana cerca de ("
 								+exp.token.getLexema() + ") linea "+exp.token.getLinea() );
 
-							store.AppendValues (exp.token.getLinea(),"Esperaba  una expresión booleana " +
+							store.AppendValues (exp.token.getLinea(),"Esperaba una expresión booleana " +
 								"cerca de ("+ exp.token.getLexema() + ")");
 						}
 						return queTipo;
@@ -523,7 +523,7 @@ namespace OCTO4
 			{                
 				archivoArbolSeman += "   ";
 			}            
-			archivoArbolSeman += identar+"|__";
+			archivoArbolSeman +="└─";
 		}
 		int identar;
 		int cont = 0;

@@ -3,9 +3,9 @@ program{
 	int b;
 	float flt;
 	a=1;
-	read a;
+	//read a;
 	b=a;
-	read flt;
+	//read flt;
 	write(flt/b);
 	write (b);
 	while(flt<100){

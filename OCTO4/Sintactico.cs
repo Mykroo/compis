@@ -50,7 +50,7 @@ namespace OCTO4
 				anterior = actualTkn;
 				actualTkn = tokens.Dequeue();
 				archivoTokens += "Id "+actualTkn.getTipoToken ()+
-					" -> "+actualTkn.getLexema()+"\n";
+					" ==> "+actualTkn.getLexema()+"\n";
 				return true;
 			}
 			else
@@ -135,7 +135,7 @@ namespace OCTO4
 			{                
 				archivoArbol += "   ";
 			}            
-			archivoArbol += identar+"|__";
+			archivoArbol += "└─";
 		}
 		int identar;
 		int cont = 0;
