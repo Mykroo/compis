@@ -1,12 +1,11 @@
 ﻿<Properties StartupItem="OCTO4/OCTO4.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="OCTO4/obj/x86/Debug/OCTO4.csproj.FilesWrittenAbsolute.txt">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="OCTO4/Emulador.cs">
     <Files>
       <File FileName="OCTO4/Lexico.cs" Line="110" Column="44" />
-      <File FileName="OCTO4/MainWindow.cs" Line="1000" Column="38" />
+      <File FileName="OCTO4/MainWindow.cs" Line="988" Column="6" />
       <File FileName="OCTO4/Emulador.cs" Line="15" Column="1" />
-      <File FileName="OCTO4/WidgetBuscarRemplazar.cs" Line="3" Column="24" />
-      <File FileName="OCTO4/obj/x86/Debug/OCTO4.csproj.FilesWrittenAbsolute.txt" Line="1" Column="12" />
+      <File FileName="OCTO4/GeneraCodigo.cs" Line="98" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
