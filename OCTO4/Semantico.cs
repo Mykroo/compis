@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Gtk;
-namespace OCTO4
+namespace Compi_segundo
 {
 	public class Semantico
 	{

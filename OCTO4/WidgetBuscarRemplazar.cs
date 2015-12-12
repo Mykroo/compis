@@ -1,6 +1,6 @@
 ﻿using System;
 using Gtk;
-namespace OCTO4
+namespace Compi_segundo
 {
 	[System.ComponentModel.ToolboxItem (true)]
 	public partial class WidgetBuscarRemplazar : Gtk.Bin

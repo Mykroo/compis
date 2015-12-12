@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OCTO4
+namespace Compi_segundo
 {
 	public class MyTreeNode: Gtk.TreeNode
 	{

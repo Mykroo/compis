@@ -10,7 +10,7 @@ public partial class MainWindow: Gtk.Window
 	bool enUso,estaBuscando;
 	Gtk.ListStore ErroresListStore;
 	Hashtable Variables;
-	Stack<OCTO4.TipoDato> pila;
+	Stack<Compi_segundo.TipoDato> pila;
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -64,7 +64,7 @@ public partial class MainWindow: Gtk.Window
 			SW.Close ();
 
 			Label tabLabel = new Label (getNombre (filechooser.Filename));
-			OCTO4.TextWidget nuevo = new OCTO4.TextWidget();
+			Compi_segundo.TextWidget nuevo = new Compi_segundo.TextWidget();
 
 			nuevo.setRuta (filechooser.Filename);
 			nuevo.setNombre (tabLabel.Text);
@@ -87,7 +87,7 @@ public partial class MainWindow: Gtk.Window
 		// Close the writer
 		writer.Close ();
 		LimpiaArchivos ();
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		widget.setModificado (false);
 	}
 	public void GuargarTodo()
@@ -96,7 +96,7 @@ public partial class MainWindow: Gtk.Window
 		a = NoteBook.CurrentPage;
 		while (a != -1) 
 		{
-			OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+			Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 			if (widget.isModificado ()) {
 				Console.WriteLine ("Se guardo se Cerro la pestania, pero " +
 					"debe preguntar si quiere guardar cambios");
@@ -141,21 +141,21 @@ public partial class MainWindow: Gtk.Window
 	{
 		int a;
 		a = NoteBook.CurrentPage ;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		return widget.getText ();
 	}
 	public string getCurrentTabName()
 	{
 		int a;
 		a = NoteBook.CurrentPage ;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		return widget.getNombre();
 	}
 	public string getCurrentTabPath()
 	{
 		int a;
 		a = NoteBook.CurrentPage ;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		return widget.getRuta();
 	}
 	public bool TapExist()
@@ -186,7 +186,7 @@ public partial class MainWindow: Gtk.Window
 
 			// Creando pestania y pintar las palabras
 			Label tabLabel = new Label (getNombre (filechooser.Filename));
-			OCTO4.TextWidget nuevo = new OCTO4.TextWidget();
+			Compi_segundo.TextWidget nuevo = new Compi_segundo.TextWidget();
 
 			nuevo.setRuta (filechooser.Filename);
 			nuevo.setNombre (tabLabel.Text);
@@ -256,7 +256,7 @@ public partial class MainWindow: Gtk.Window
 		int a;
 		a = NoteBook.CurrentPage;
 		if (a != -1) {
-			OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+			Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 			if (widget.isModificado ()) {
 				Console.WriteLine ("Se guardo se Cerro la pestania, pero " +
 				"debe preguntar si quiere guardar cambios");
@@ -286,7 +286,7 @@ public partial class MainWindow: Gtk.Window
 		int a;
 		if (!TapExist ()){return;}
 		a = NoteBook.CurrentPage;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		widget.Identar();
 	}
 	protected void OnExecuteActionActivated (object sender, EventArgs e)
@@ -297,20 +297,20 @@ public partial class MainWindow: Gtk.Window
 		if (!TapExist ()){return;}
 		a = NoteBook.CurrentPage;
 
-		OCTO4.Nodo nodo;
-		OCTO4.TextWidget widget;
-		OCTO4.Lexico tokens;
-		OCTO4.Sintactico sintactico;
-		OCTO4.Semantico semantico;
-		OCTO4.GeneraCodigo generaCodigo;
+		Compi_segundo.Nodo nodo;
+		Compi_segundo.TextWidget widget;
+		Compi_segundo.Lexico tokens;
+		Compi_segundo.Sintactico sintactico;
+		Compi_segundo.Semantico semantico;
+		Compi_segundo.GeneraCodigo generaCodigo;
 
-		widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 
-		tokens = new OCTO4.Lexico (widget.getText(),ErroresListStore);
-		sintactico = new OCTO4.Sintactico (tokens.Tokenize(),tokens.GetListStore());
-		semantico = new OCTO4.Semantico (sintactico.GetListStore());
+		tokens = new Compi_segundo.Lexico (widget.getText(),ErroresListStore);
+		sintactico = new Compi_segundo.Sintactico (tokens.Tokenize(),tokens.GetListStore());
+		semantico = new Compi_segundo.Semantico (sintactico.GetListStore());
 		nodo = sintactico.creaArbol ();
-		generaCodigo = new OCTO4.GeneraCodigo();
+		generaCodigo = new Compi_segundo.GeneraCodigo();
 
 		if(nodo != null)
 		{
@@ -333,7 +333,7 @@ public partial class MainWindow: Gtk.Window
 		}
 		TreeResultados.Buffer.Text = "";
 		Variables = new Hashtable ();
-		pila = new Stack<OCTO4.TipoDato> ();
+		pila = new Stack<Compi_segundo.TipoDato> ();
 		Simular ();
 
 	}
@@ -360,7 +360,7 @@ public partial class MainWindow: Gtk.Window
 		int a;
 		if (!TapExist ()){return;}
 		a = NoteBook.CurrentPage;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		widget.Copiar ();
 	}
 	protected void OnCortarActionActivated (object sender, EventArgs e)
@@ -368,7 +368,7 @@ public partial class MainWindow: Gtk.Window
 		int a;
 		if (!TapExist ()){return;}
 		a = NoteBook.CurrentPage;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		widget.Cortar ();
 	}
 	protected void OnPegarActionActivated (object sender, EventArgs e)
@@ -376,7 +376,7 @@ public partial class MainWindow: Gtk.Window
 		int a;
 		if (!TapExist ()){return;}
 		a = NoteBook.CurrentPage;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		widget.Pegar ();
 		widget.pintarTodo ();
 	}
@@ -385,7 +385,7 @@ public partial class MainWindow: Gtk.Window
 		int a;
 		if (!TapExist ()){return;}
 		a = NoteBook.CurrentPage;
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		widget.Eliminar ();
 		widget.pintarTodo ();
 	}
@@ -397,7 +397,7 @@ public partial class MainWindow: Gtk.Window
 		{
 			return;
 		}
-		OCTO4.TextWidget widget =(OCTO4.TextWidget)NoteBook.Children[a];
+		Compi_segundo.TextWidget widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 		widget.etiquetas ("red","red","red","red","red",true);
 		widget.pintarTodo ();
 	}
@@ -424,16 +424,16 @@ public partial class MainWindow: Gtk.Window
 		// Falta validar, si hay errores, no debe ejecutarce
 		TreeResultados.Buffer.Text = "";
 		Variables = new Hashtable ();
-		pila = new Stack<OCTO4.TipoDato> ();
+		pila = new Stack<Compi_segundo.TipoDato> ();
 		Simular ();
 	}
 	public void Simular ()
 	{
 		int linea = 0;
 		string instruccion = "";
-		OCTO4.TipoDato objeto;
+		Compi_segundo.TipoDato objeto;
 		Variables = new Hashtable ();
-		pila = new Stack<OCTO4.TipoDato> ();
+		pila = new Stack<Compi_segundo.TipoDato> ();
 		instruccion = NextLine (linea);
 		while (instruccion != "EOFF" && existeInstruccion (instruccion)) {
 			//BEGIN of safe zone
@@ -441,22 +441,22 @@ public partial class MainWindow: Gtk.Window
 			string[] cant = instruccion.Split (' ');
 			switch (cant [0]) {
 			case "VARE":
-				Variables.Add (cant [1], new OCTO4.TipoDato (cant [1], "null", "int"));
+				Variables.Add (cant [1], new Compi_segundo.TipoDato (cant [1], "null", "int"));
 				break;
 			case "VARF":
-				Variables.Add (cant [1], new OCTO4.TipoDato (cant [1], "null", "float"));
+				Variables.Add (cant [1], new Compi_segundo.TipoDato (cant [1], "null", "float"));
 				break;
 			case "CGVE":
-				pila.Push ((OCTO4.TipoDato)Variables [cant [1]]);
+				pila.Push ((Compi_segundo.TipoDato)Variables [cant [1]]);
 				break;
 			case "CGVF":
-				pila.Push ((OCTO4.TipoDato)Variables [cant [1]]);
+				pila.Push ((Compi_segundo.TipoDato)Variables [cant [1]]);
 				break;
 			case "CGE":
-				pila.Push (new OCTO4.TipoDato (cant [1], cant [1], "int"));
+				pila.Push (new Compi_segundo.TipoDato (cant [1], cant [1], "int"));
 				break;
 			case "CGF":
-				pila.Push (new OCTO4.TipoDato (cant [1], cant [1], "float"));
+				pila.Push (new Compi_segundo.TipoDato (cant [1], cant [1], "float"));
 				break;
 			case "WR":
 				TreeResultados.Buffer.Text += DameValor () + "\n";
@@ -471,16 +471,16 @@ public partial class MainWindow: Gtk.Window
 					int not = Int32.Parse (pila.Pop ().GetValor ());
 
 					if (not == 1) {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "1", "int"));
+						pila.Push (new Compi_segundo.TipoDato ("0", "1", "int"));
 					}
 				}
 				break;
 			case "ST":
 				if (pila.Count >= 1) {
 
-					OCTO4.TipoDato cpy = (OCTO4.TipoDato)Variables [cant [1]];
+					Compi_segundo.TipoDato cpy = (Compi_segundo.TipoDato)Variables [cant [1]];
 					cpy.setvalor (DameValor ());
 					Variables.Remove (cant [1]);
 					Variables.Add (cpy.GetName (), cpy);
@@ -503,9 +503,9 @@ public partial class MainWindow: Gtk.Window
 					int valDos = Int32.Parse (pila.Pop ().GetValor ());
 
 					if (valDos == 1 && valuno == 1) {
-						pila.Push (new OCTO4.TipoDato ("0", "1", "int"));
+						pila.Push (new Compi_segundo.TipoDato ("0", "1", "int"));
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 					}
 				}
 				break;
@@ -526,9 +526,9 @@ public partial class MainWindow: Gtk.Window
 					int valDos = Int32.Parse (pila.Pop ().GetValor ());
 
 					if (valDos == 0 && valuno == 0) {
-						pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+						pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 					} else {
-						pila.Push (new OCTO4.TipoDato ("0", "1", "int"));
+						pila.Push (new Compi_segundo.TipoDato ("0", "1", "int"));
 					}
 				}
 				break;
@@ -550,7 +550,7 @@ public partial class MainWindow: Gtk.Window
 						}
 						b = Single.Parse (DameValor ());
 
-						pila.Push (new OCTO4.TipoDato ((a * b) + "", (a * b) + "", "float"));
+						pila.Push (new Compi_segundo.TipoDato ((a * b) + "", (a * b) + "", "float"));
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
@@ -567,7 +567,7 @@ public partial class MainWindow: Gtk.Window
 							}
 							float fB = Single.Parse (DameValor ());
 
-							pila.Push (new OCTO4.TipoDato ((fA * fB) + "", (fA * fB) + "", "float"));
+							pila.Push (new Compi_segundo.TipoDato ((fA * fB) + "", (fA * fB) + "", "float"));
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
@@ -576,7 +576,7 @@ public partial class MainWindow: Gtk.Window
 							}
 							int intB = Int32.Parse (DameValor ());
 
-							pila.Push (new OCTO4.TipoDato ((fA * intB) + "", (fA * intB) + "", "int"));
+							pila.Push (new Compi_segundo.TipoDato ((fA * intB) + "", (fA * intB) + "", "int"));
 						}
 					}
 				} else {
@@ -602,7 +602,7 @@ public partial class MainWindow: Gtk.Window
 						}
 						b = Single.Parse (DameValor ());
 
-						pila.Push (new OCTO4.TipoDato ((b - a) + "", (b - a) + "", "float"));
+						pila.Push (new Compi_segundo.TipoDato ((b - a) + "", (b - a) + "", "float"));
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
@@ -619,7 +619,7 @@ public partial class MainWindow: Gtk.Window
 							}
 							float fB = Single.Parse (DameValor ());
 
-							pila.Push (new OCTO4.TipoDato ((fB - fA) + "", (fB - fA) + "", "float"));
+							pila.Push (new Compi_segundo.TipoDato ((fB - fA) + "", (fB - fA) + "", "float"));
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
@@ -628,7 +628,7 @@ public partial class MainWindow: Gtk.Window
 							}
 							int intB = Int32.Parse (DameValor ());
 
-							pila.Push (new OCTO4.TipoDato ((intB - fA) + "", (intB - fA) + "", "int"));
+							pila.Push (new Compi_segundo.TipoDato ((intB - fA) + "", (intB - fA) + "", "int"));
 						}
 					}
 				} else {
@@ -655,7 +655,7 @@ public partial class MainWindow: Gtk.Window
 						}
 						b = Single.Parse (DameValor ());
 
-						pila.Push (new OCTO4.TipoDato ((b + a) + "", (b + a) + "", "float"));
+						pila.Push (new Compi_segundo.TipoDato ((b + a) + "", (b + a) + "", "float"));
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var " +
@@ -672,7 +672,7 @@ public partial class MainWindow: Gtk.Window
 							}
 							float fB = Single.Parse (DameValor ());
 
-							pila.Push (new OCTO4.TipoDato ((fB + fA) + "", (fB + fA) + "", "float"));
+							pila.Push (new Compi_segundo.TipoDato ((fB + fA) + "", (fB + fA) + "", "float"));
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
@@ -681,7 +681,7 @@ public partial class MainWindow: Gtk.Window
 							}
 							int intB = Int32.Parse (DameValor ());
 
-							pila.Push (new OCTO4.TipoDato ((intB + fA) + "", (intB + fA) + "", "int"));
+							pila.Push (new Compi_segundo.TipoDato ((intB + fA) + "", (intB + fA) + "", "int"));
 						}
 					}
 				} else {
@@ -711,7 +711,7 @@ public partial class MainWindow: Gtk.Window
 							TreeResultados.Buffer.Text += "Error: divicion entre cero\n";
 							return;
 						}
-						pila.Push (new OCTO4.TipoDato ((b / a) + "", (b / a) + "", "float"));
+						pila.Push (new Compi_segundo.TipoDato ((b / a) + "", (b / a) + "", "float"));
 					} else {
 						if (pila.Peek ().GetValor () == "null") {
 							TreeResultados.Buffer.Text += "Error var "
@@ -732,7 +732,7 @@ public partial class MainWindow: Gtk.Window
 								TreeResultados.Buffer.Text += "Error: divicion entre cero\n";
 								return;
 							}
-							pila.Push (new OCTO4.TipoDato ((fB / fA) + "", (fB / fA) + "", "float"));
+							pila.Push (new Compi_segundo.TipoDato ((fB / fA) + "", (fB / fA) + "", "float"));
 						} else {
 							if (pila.Peek ().GetValor () == "null") {
 								TreeResultados.Buffer.Text += "Error var "
@@ -745,7 +745,7 @@ public partial class MainWindow: Gtk.Window
 								TreeResultados.Buffer.Text += "Error: divicion entre cero\n";
 								return;
 							}
-							pila.Push (new OCTO4.TipoDato ((intB / fA) + "", (intB / fA) + "", "int"));
+							pila.Push (new Compi_segundo.TipoDato ((intB / fA) + "", (intB / fA) + "", "int"));
 						}
 					}
 				} else {
@@ -764,7 +764,7 @@ public partial class MainWindow: Gtk.Window
 					dialogo.ShowAll ();
 					dialogo.Run ();
 					entero = entry.Text;
-					Variables [cant [1]] = new OCTO4.TipoDato (cant [1], entero, "int");
+					Variables [cant [1]] = new Compi_segundo.TipoDato (cant [1], entero, "int");
 					dialogo.Destroy (); 
 				}
 				Console.WriteLine ("UpS");
@@ -780,7 +780,7 @@ public partial class MainWindow: Gtk.Window
 					diaF.ShowAll ();
 					diaF.Run ();
 					entero = entry.Text;
-					Variables [cant [1]] = new OCTO4.TipoDato (cant [1], entero, "float");
+					Variables [cant [1]] = new Compi_segundo.TipoDato (cant [1], entero, "float");
 					diaF.Destroy (); 
 				} while (!double.TryParse(entero,out aux_flt));
 				break;
@@ -809,8 +809,8 @@ public partial class MainWindow: Gtk.Window
 				break;
 			case "II":
 				if (pila.Count > 1) {
-					OCTO4.TipoDato dt1DeII = pila.Pop ();
-					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
 					pila.Push (dt2DeII);
 					pila.Push (dt1DeII);
 
@@ -818,25 +818,25 @@ public partial class MainWindow: Gtk.Window
 						float n1 = Single.Parse (DameValor ());
 						float n2 = Single.Parse (DameValor ());
 						if (n2 == n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					} else {
 						int n1 = Int32.Parse (DameValor ());
 						int n2 = Int32.Parse (DameValor ());
 						if (n2 == n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					}
 				}
 				break;
 			case "NI":
 				if (pila.Count > 1) {
-					OCTO4.TipoDato dt1DeII = pila.Pop ();
-					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
 					pila.Push (dt2DeII);
 					pila.Push (dt1DeII);
 
@@ -844,25 +844,25 @@ public partial class MainWindow: Gtk.Window
 						float n1 = Single.Parse (DameValor ());
 						float n2 = Single.Parse (DameValor ());
 						if (n2 != n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					} else {
 						int n1 = Int32.Parse (DameValor ());
 						int n2 = Int32.Parse (DameValor ());
 						if (n2 != n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					}
 				}
 				break;
 			case "MAI":
 				if (pila.Count > 1) {
-					OCTO4.TipoDato dt1DeII = pila.Pop ();
-					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
 					pila.Push (dt2DeII);
 					pila.Push (dt1DeII);
 
@@ -870,25 +870,25 @@ public partial class MainWindow: Gtk.Window
 						float n1 = Single.Parse (DameValor ());
 						float n2 = Single.Parse (DameValor ());
 						if (n2 >= n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					} else {
 						int n1 = Int32.Parse (DameValor ());
 						int n2 = Int32.Parse (DameValor ());
 						if (n2 >= n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					}
 				}
 				break;
 			case "MEI":
 				if (pila.Count > 1) {
-					OCTO4.TipoDato dt1DeII = pila.Pop ();
-					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
 					pila.Push (dt2DeII);
 					pila.Push (dt1DeII);
 
@@ -896,25 +896,25 @@ public partial class MainWindow: Gtk.Window
 						float n1 = Single.Parse (DameValor ());
 						float n2 = Single.Parse (DameValor ());
 						if (n2 <= n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					} else {
 						int n1 = Int32.Parse (DameValor ());
 						int n2 = Int32.Parse (DameValor ());
 						if (n2 <= n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					}
 				}
 				break;
 			case "ME":
 				if (pila.Count > 1) {
-					OCTO4.TipoDato dt1DeII = pila.Pop ();
-					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
 					pila.Push (dt2DeII);
 					pila.Push (dt1DeII);
 
@@ -922,25 +922,25 @@ public partial class MainWindow: Gtk.Window
 						float n1 = Single.Parse (DameValor ());
 						float n2 = Single.Parse (DameValor ());
 						if (n2 < n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					} else {
 						int n1 = Int32.Parse (DameValor ());
 						int n2 = Int32.Parse (DameValor ());
 						if (n2 < n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					}
 				}
 				break;
 			case "MA":
 				if (pila.Count > 1) {
-					OCTO4.TipoDato dt1DeII = pila.Pop ();
-					OCTO4.TipoDato dt2DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
+					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
 					pila.Push (dt2DeII);
 					pila.Push (dt1DeII);
 
@@ -948,17 +948,17 @@ public partial class MainWindow: Gtk.Window
 						float n1 = Single.Parse (DameValor ());
 						float n2 = Single.Parse (DameValor ());
 						if (n2 > n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					} else {
 						int n1 = Int32.Parse (DameValor ());
 						int n2 = Int32.Parse (DameValor ());
 						if (n2 > n1) {
-							pila.Push (new OCTO4.TipoDato ("1", "1", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("1", "1", "int"));
 						} else {
-							pila.Push (new OCTO4.TipoDato ("0", "0", "int"));
+							pila.Push (new Compi_segundo.TipoDato ("0", "0", "int"));
 						}
 					}
 				}
@@ -1007,7 +1007,7 @@ public partial class MainWindow: Gtk.Window
 	public string DameTipoDato(){
 		if (pila.Peek () != null) {
 			if (Variables.Contains (pila.Peek ())) {
-				OCTO4.TipoDato dato = (OCTO4.TipoDato)Variables [pila.Pop ()];
+				Compi_segundo.TipoDato dato = (Compi_segundo.TipoDato)Variables [pila.Pop ()];
 				return dato.GetValor ();
 			} else {
 				return pila.Pop ().GetValor ();
@@ -1018,7 +1018,7 @@ public partial class MainWindow: Gtk.Window
 	public string DameValor(){
 		if (pila.Peek () != null) {
 			if (Variables.Contains (pila.Peek ())) {
-				OCTO4.TipoDato dato = (OCTO4.TipoDato)Variables [pila.Pop ()];
+				Compi_segundo.TipoDato dato = (Compi_segundo.TipoDato)Variables [pila.Pop ()];
 				return dato.GetValor ();
 			} else {
 				return pila.Pop ().GetValor ();

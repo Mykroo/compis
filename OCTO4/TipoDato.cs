@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-namespace OCTO4
+namespace Compi_segundo
 {
 	public class TipoDato
 	{

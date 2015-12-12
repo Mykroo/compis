@@ -1,7 +1,7 @@
 ﻿using System;
 using Gtk;
 
-namespace OCTO4
+namespace Compi_segundo
 {
 	class MainClass
 	{

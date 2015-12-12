@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace OCTO4
+namespace Compi_segundo
 {
 	public class Process
 	{
