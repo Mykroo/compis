@@ -10,15 +10,6 @@ namespace OCTO4
 		private global::Gtk.HBox hbox1;
 		private global::Gtk.ScrolledWindow GtkScrolledWindow;
 		private global::Gtk.TextView codigo;
-		private global::Gtk.Statusbar statusbar4;
-		private global::Gtk.HBox hbox7;
-		private global::Gtk.HBox hbox9;
-		private global::Gtk.Label label23;
-		private global::Gtk.Label totales;
-		private global::Gtk.Label label26;
-		private global::Gtk.HBox hbox10;
-		private global::Gtk.Label label27;
-		private global::Gtk.Label actual;
 
 		protected virtual void Build ()
 		{
@@ -54,90 +45,6 @@ namespace OCTO4
 			this.vbox5.Add (this.hbox1);
 			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.hbox1]));
 			w5.Position = 0;
-			// Container child vbox5.Gtk.Box+BoxChild
-			this.statusbar4 = new global::Gtk.Statusbar ();
-			this.statusbar4.Name = "statusbar4";
-			this.statusbar4.Spacing = 6;
-			// Container child statusbar4.Gtk.Box+BoxChild
-			this.hbox7 = new global::Gtk.HBox ();
-			this.hbox7.Name = "hbox7";
-			this.hbox7.Spacing = 6;
-			// Container child hbox7.Gtk.Box+BoxChild
-			this.hbox9 = new global::Gtk.HBox ();
-			this.hbox9.Name = "hbox9";
-			this.hbox9.Spacing = 6;
-			// Container child hbox9.Gtk.Box+BoxChild
-			this.label23 = new global::Gtk.Label ();
-			this.label23.Name = "label23";
-			this.label23.Xalign = 1F;
-			this.label23.LabelProp = global::Mono.Unix.Catalog.GetString ("Lineas Totales: ");
-			this.hbox9.Add (this.label23);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox9 [this.label23]));
-			w6.Position = 0;
-			w6.Expand = false;
-			w6.Fill = false;
-			// Container child hbox9.Gtk.Box+BoxChild
-			this.totales = new global::Gtk.Label ();
-			this.totales.Name = "totales";
-			this.totales.Xalign = 1F;
-			this.hbox9.Add (this.totales);
-			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox9 [this.totales]));
-			w7.Position = 1;
-			w7.Expand = false;
-			w7.Fill = false;
-			this.hbox7.Add (this.hbox9);
-			global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.hbox9]));
-			w8.Position = 0;
-			w8.Expand = false;
-			w8.Fill = false;
-			// Container child hbox7.Gtk.Box+BoxChild
-			this.label26 = new global::Gtk.Label ();
-			this.label26.Name = "label26";
-			this.label26.Xalign = 1F;
-			this.label26.LabelProp = global::Mono.Unix.Catalog.GetString ("-------------");
-			this.hbox7.Add (this.label26);
-			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.label26]));
-			w9.Position = 1;
-			w9.Expand = false;
-			w9.Fill = false;
-			// Container child hbox7.Gtk.Box+BoxChild
-			this.hbox10 = new global::Gtk.HBox ();
-			this.hbox10.Name = "hbox10";
-			this.hbox10.Spacing = 6;
-			// Container child hbox10.Gtk.Box+BoxChild
-			this.label27 = new global::Gtk.Label ();
-			this.label27.Name = "label27";
-			this.label27.Xalign = 1F;
-			this.label27.LabelProp = global::Mono.Unix.Catalog.GetString ("Linea Actual: ");
-			this.hbox10.Add (this.label27);
-			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox10 [this.label27]));
-			w10.Position = 0;
-			w10.Expand = false;
-			w10.Fill = false;
-			// Container child hbox10.Gtk.Box+BoxChild
-			this.actual = new global::Gtk.Label ();
-			this.actual.Name = "actual";
-			this.actual.Xalign = 1F;
-			this.hbox10.Add (this.actual);
-			global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox10 [this.actual]));
-			w11.Position = 1;
-			w11.Expand = false;
-			w11.Fill = false;
-			this.hbox7.Add (this.hbox10);
-			global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox7 [this.hbox10]));
-			w12.Position = 2;
-			w12.Expand = false;
-			w12.Fill = false;
-			this.statusbar4.Add (this.hbox7);
-			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.statusbar4 [this.hbox7]));
-			w13.Position = 1;
-			w13.Expand = false;
-			w13.Fill = false;
-			this.vbox5.Add (this.statusbar4);
-			global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox5 [this.statusbar4]));
-			w14.Position = 1;
-			w14.Expand = false;
-			w14.Fill = false;
 			this.Add (this.vbox5);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

@@ -163,8 +163,6 @@ namespace OCTO4
 				cont++;
 			}
 
-			actual.Text =(linea+1)+" y "+cont;
-			totales.Text = codigo.Buffer.LineCount+"";
 
 			//posicionando cursor endonde estaba
 			codigo.Buffer.PlaceCursor (codigo.Buffer.GetIterAtLineIndex(linea,cont));//esto se queda
