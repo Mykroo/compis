@@ -1,11 +1,11 @@
-﻿<Properties StartupItem="OCTO4/OCTO4.csproj">
+﻿<Properties StartupItem="Compi_segundo/Compi_segundo.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="OCTO4/Emulador.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Compi_segundo/Emulador.cs">
     <Files>
-      <File FileName="OCTO4/Lexico.cs" Line="110" Column="44" />
-      <File FileName="OCTO4/MainWindow.cs" Line="988" Column="6" />
-      <File FileName="OCTO4/Emulador.cs" Line="15" Column="1" />
-      <File FileName="OCTO4/GeneraCodigo.cs" Line="98" Column="36" />
+      <File FileName="Compi_segundo/Lexico.cs" Line="110" Column="44" />
+      <File FileName="Compi_segundo/MainWindow.cs" Line="988" Column="6" />
+      <File FileName="Compi_segundo/Emulador.cs" Line="15" Column="1" />
+      <File FileName="Compi_segundo/CodigoPGen.cs" Line="98" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

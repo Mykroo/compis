@@ -302,7 +302,7 @@ public partial class MainWindow: Gtk.Window
 		Compi_segundo.Lexico tokens;
 		Compi_segundo.Sintactico sintactico;
 		Compi_segundo.Semantico semantico;
-		Compi_segundo.GeneraCodigo generaCodigo;
+		Compi_segundo.CodigoPGen generaCodigo;
 
 		widget =(Compi_segundo.TextWidget)NoteBook.Children[a];
 
@@ -310,7 +310,7 @@ public partial class MainWindow: Gtk.Window
 		sintactico = new Compi_segundo.Sintactico (tokens.Tokenize(),tokens.GetListStore());
 		semantico = new Compi_segundo.Semantico (sintactico.GetListStore());
 		nodo = sintactico.creaArbol ();
-		generaCodigo = new Compi_segundo.GeneraCodigo();
+		generaCodigo = new Compi_segundo.CodigoPGen();
 
 		if(nodo != null)
 		{
@@ -334,7 +334,7 @@ public partial class MainWindow: Gtk.Window
 		TreeResultados.Buffer.Text = "";
 		Variables = new Hashtable ();
 		pila = new Stack<Compi_segundo.TipoDato> ();
-		Simular ();
+		InterpretaMaqVirt ();
 
 	}
 	protected void OnGuardarActionActivated (object sender, EventArgs e)
@@ -425,9 +425,9 @@ public partial class MainWindow: Gtk.Window
 		TreeResultados.Buffer.Text = "";
 		Variables = new Hashtable ();
 		pila = new Stack<Compi_segundo.TipoDato> ();
-		Simular ();
+		InterpretaMaqVirt ();
 	}
-	public void Simular ()
+	public void InterpretaMaqVirt ()
 	{
 		int linea = 0;
 		string instruccion = "";
@@ -446,19 +446,19 @@ public partial class MainWindow: Gtk.Window
 			case "VARF":
 				Variables.Add (cant [1], new Compi_segundo.TipoDato (cant [1], "null", "float"));
 				break;
-			case "CGVE":
+			case "LOADVE":
 				pila.Push ((Compi_segundo.TipoDato)Variables [cant [1]]);
 				break;
-			case "CGVF":
+			case "LOADVF":
 				pila.Push ((Compi_segundo.TipoDato)Variables [cant [1]]);
 				break;
-			case "CGE":
+			case "LOADE":
 				pila.Push (new Compi_segundo.TipoDato (cant [1], cant [1], "int"));
 				break;
-			case "CGF":
+			case "LOADF":
 				pila.Push (new Compi_segundo.TipoDato (cant [1], cant [1], "float"));
 				break;
-			case "WR":
+			case "IMPRI":
 				TreeResultados.Buffer.Text += DameValor () + "\n";
 				break;
 			case "NOT":
@@ -477,7 +477,7 @@ public partial class MainWindow: Gtk.Window
 					}
 				}
 				break;
-			case "ST":
+			case "ALMA":
 				if (pila.Count >= 1) {
 
 					Compi_segundo.TipoDato cpy = (Compi_segundo.TipoDato)Variables [cant [1]];
@@ -532,7 +532,7 @@ public partial class MainWindow: Gtk.Window
 					}
 				}
 				break;
-			case "M":
+			case "MULTI":
 				if (pila.Count >= 2) {
 					if (pila.Peek ().GetTipo () == "float") {
 						float a, b;
@@ -584,7 +584,7 @@ public partial class MainWindow: Gtk.Window
 					return;
 				}
 				break;	
-			case "R":
+			case "RID":
 				if (pila.Count >= 2) {
 					if (pila.Peek ().GetTipo () == "float") {
 						float a, b;
@@ -689,7 +689,7 @@ public partial class MainWindow: Gtk.Window
 					return;
 				}
 				break;
-			case "D":
+			case "DIVI":
 				if (pila.Count >= 2) {
 					if (pila.Peek ().GetTipo () == "float") {
 						float a, b;
@@ -807,7 +807,7 @@ public partial class MainWindow: Gtk.Window
 					}
 				}
 				break;
-			case "II":
+			case "IGUANA":
 				if (pila.Count > 1) {
 					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
 					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
@@ -833,7 +833,7 @@ public partial class MainWindow: Gtk.Window
 					}
 				}
 				break;
-			case "NI":
+			case "DIFF":
 				if (pila.Count > 1) {
 					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
 					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
@@ -859,7 +859,7 @@ public partial class MainWindow: Gtk.Window
 					}
 				}
 				break;
-			case "MAI":
+			case "MAYOIGUA":
 				if (pila.Count > 1) {
 					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
 					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
@@ -885,7 +885,7 @@ public partial class MainWindow: Gtk.Window
 					}
 				}
 				break;
-			case "MEI":
+			case "MENOIGUA":
 				if (pila.Count > 1) {
 					Compi_segundo.TipoDato dt1DeII = pila.Pop ();
 					Compi_segundo.TipoDato dt2DeII = pila.Pop ();
@@ -978,8 +978,8 @@ public partial class MainWindow: Gtk.Window
 		return iter1.GetText (iter2);
 	}
 	public bool existeInstruccion(string instruccion){
-		string[] inst = {"VARE","VARF","CGVE","CGVF","WR","ST","CGE","CGF","SM","R","M","D",
-			"P","II","NI","MAI","MEI", "ME","MA","AND","OR","NOT","SLT","SLTSF","SLTSV","ETQ","RIDVF","RIDVE"};
+		string[] inst = {"VARE","VARF","LOADVE","LOADVF","IMPRI","ALMA","LOADE","LOADF","SM","RID","MULTI","DIVI",
+			"P","IGUANA","DIFF","MAYOIGUA","MENOIGUA", "ME","MA","AND","OR","NOT","SLT","SLTSF","SLTSV","ETQ","RIDVF","RIDVE"};
 		string[] cant = instruccion.Split (' ');
 		if(cant[0] != null){
 			for (int i = 0; i < inst.Length; i++) {

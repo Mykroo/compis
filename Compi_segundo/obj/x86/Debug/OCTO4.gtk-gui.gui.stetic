@@ -6,7 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/OCTO4.exe" internal="true" />
+    <widget-library name="../bin/Debug/Compi_segundo.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="884 508">
     <action-group name="Default">
@@ -678,7 +678,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="OCTO4.TextWidget" design-size="602 402">
+  <widget class="Gtk.Bin" id="Compi_segundo.TextWidget" design-size="602 402">
     <action-group name="Default">
       <action id="goDownAction">
         <property name="Type">Action</property>
@@ -999,7 +999,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="OCTO4.WidgetBuscarRemplazar" design-size="418 73">
+  <widget class="Gtk.Bin" id="Compi_segundo.WidgetBuscarRemplazar" design-size="418 73">
     <action-group name="Default">
       <action id="goUpAction">
         <property name="Type">Action</property>

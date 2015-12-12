@@ -1,6 +1,19 @@
 ﻿<Properties StartupItem="OCTO4/OCTO4.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Compi_segundo/MainWindow.cs">
+    <Files>
+      <File FileName="Compi_segundo/MainWindow.cs" Line="15" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Compi_segundo" expanded="True">
+            <Node name="GeneraCodigo.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

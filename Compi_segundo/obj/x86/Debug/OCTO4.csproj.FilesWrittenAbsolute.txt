@@ -1,0 +1,12 @@
+/home/jose/Compi_segundo/Compi_segundo/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/jose/Compi_segundo/Compi_segundo/obj/x86/Debug/Compi_segundo.gtk-gui.gui.stetic
+/home/jose/Compi_segundo/Compi_segundo/bin/Debug/Compi_segundo.exe.mdb
+/home/jose/Compi_segundo/Compi_segundo/bin/Debug/Compi_segundo.exe
+/home/jose/Compi_segundo/Compi_segundo/obj/x86/Debug/Compi_segundo.exe
+/home/jose/Compi_segundo/Compi_segundo/obj/x86/Debug/Compi_segundo.exe.mdb
+/home/jose/Compi_segundo (2)/Compi_segundo/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/jose/Compi_segundo (2)/Compi_segundo/obj/x86/Debug/Compi_segundo.gtk-gui.gui.stetic
+/home/jose/Compi_segundo (2)/Compi_segundo/bin/Debug/Compi_segundo.exe.mdb
+/home/jose/Compi_segundo (2)/Compi_segundo/bin/Debug/Compi_segundo.exe
+/home/jose/Compi_segundo (2)/Compi_segundo/obj/x86/Debug/Compi_segundo.exe
+/home/jose/Compi_segundo (2)/Compi_segundo/obj/x86/Debug/Compi_segundo.exe.mdb

@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{1469F29D-78BB-4BA4-8A2A-D74B3C3085EE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>OCTO4</RootNamespace>
-    <AssemblyName>OCTO4</AssemblyName>
+    <RootNamespace>Compi_segundo</RootNamespace>
+    <AssemblyName>Compi_segundo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ProductVersion>12.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -79,7 +79,7 @@
     <Compile Include="Token.cs" />
     <Compile Include="Process.cs" />
     <Compile Include="MyTreeNode.cs" />
-    <Compile Include="GeneraCodigo.cs" />
+    <Compile Include="CodigoPGen.cs" />
     <Compile Include="Properties\EnumTok.cs" />
     <Compile Include="Analizador.cs" />
     <Compile Include="TipoDato.cs" />

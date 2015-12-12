@@ -2,13 +2,13 @@
 using System.Collections;
 namespace Compi_segundo
 {
-	public class GeneraCodigo
+	public class CodigoPGen
 	{
 		Hashtable hashtable;
 		string codigoFinal;
 		Stack asignacion = new Stack();
 		Stack asignacionWhile = new Stack();
-		public GeneraCodigo ()
+		public CodigoPGen ()
 		{
 			hashtable = new Hashtable();
 			codigoFinal = "";
@@ -46,7 +46,7 @@ namespace Compi_segundo
 				GeneraCodAsig (nod.hijos[0]);
 				GeneraCodAsig (nod.hijos[1]);
 				if (TipoOperador (nod.token.getLexema ()) == "-1") {
-					codigoFinal+="CG"+Numero(nod.token.getLexema())+"\n";				
+					codigoFinal+="LOAD"+Numero(nod.token.getLexema())+"\n";				
 				} else {
 					codigoFinal += TipoOperador (nod.token.getLexema ()) + "\n";
 				}
@@ -93,8 +93,8 @@ namespace Compi_segundo
 		public string TipoOperador(string texto){
 			string[] tipos =       {"+","-","*","/","%","==","!=",">=", 
 				"<=", "<", ">", "and","or","not" };
-			string[] equivalente = {"SM","R","M","D","P","II","NI","MAI",
-				"MEI", "ME","MA","AND","OR","NOT"};
+			string[] equivalente = {"SM","RID","MULTI","DIVI","P","IGUANA","DIFF","MAYOIGUA",
+				"MENOIGUA", "ME","MA","AND","OR","NOT"};
 			for(int i=0;i<tipos.Length;i++){
 				if(tipos[i].Equals(texto)){		
 					return equivalente[i];
@@ -153,7 +153,7 @@ namespace Compi_segundo
 			}
 			else if(arbol.token.getTipoToken() == (int)enumTok.Write){
 				GeneraCodAsig (arbol.hijos[0]);
-				codigoFinal += "WR"+"\n";			
+				codigoFinal += "IMPRI"+"\n";			
 			}
 			else if(arbol.token.getTipoToken() == (int)enumTok.For){
 				if(arbol.hijos[0] != null){
@@ -173,7 +173,7 @@ namespace Compi_segundo
 			}
 			else if(arbol.token.getTipoToken() == (int)enumTok.igual){
 				GeneraCodAsig (arbol.hijos [0]);			
-				codigoFinal += "ST "+arbol.token.getLexema()+"\n";
+				codigoFinal += "ALMA "+arbol.token.getLexema()+"\n";
 			}
 		}
 		// Se cicla para que todo el arbol pueda ser leido

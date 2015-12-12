@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OCTO4
+namespace Compi_segundo
 {
 	[System.ComponentModel.ToolboxItem (true)]
 	public partial class Emulador : Gtk.Bin

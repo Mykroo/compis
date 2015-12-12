@@ -35,11 +35,11 @@ namespace Compi_segundo
 			}
 			IDictionaryEnumerator denum = hashtable.GetEnumerator();
 			DictionaryEntry dentry;
-			hashText += "\n     Var    Type";
+			hashText += "Var \t\t\t\t\t\t    Type";
 			while (denum.MoveNext())
 			{
 				dentry = (DictionaryEntry)denum.Current;
-				hashText += "\n     " + dentry.Key + "           " + dentry.Value;
+				hashText += "\n" + dentry.Key + "\t\t\t\t\t\t" + dentry.Value;
 			}
 			return hashText;
 		}
