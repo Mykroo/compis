@@ -147,7 +147,7 @@ namespace OCTO4
 				espacios();
 				if (arbol.token.getTipoToken() == (int)enumTok.igual)
 				{
-					archivoArbol += "asign: ";
+					archivoArbol += "asignacion: ";
 				}
 				else if (arbol.token.getTipoToken() == (int)enumTok.Read) 
 				{

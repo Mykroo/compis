@@ -535,7 +535,7 @@ namespace OCTO4
 				espacios();
 				if (arbol.token.getTipoToken() == (int)enumTok.igual)
 				{
-					archivoArbolSeman += "asign: ";
+					archivoArbolSeman += "asignacion: ";
 				}
 				else if (arbol.token.getTipoToken() == (int)enumTok.Read) 
 				{
